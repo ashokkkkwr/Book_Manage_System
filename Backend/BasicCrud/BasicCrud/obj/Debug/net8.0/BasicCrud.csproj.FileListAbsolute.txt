@@ -1,0 +1,310 @@
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\appsettings.Development.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\appsettings.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.staticwebassets.endpoints.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.exe
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.deps.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.runtimeconfig.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.pdb
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Azure.Core.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Azure.Identity.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Humanizer.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.ClientModel.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.CodeDom.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.AssemblyReference.cache
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.GeneratedMSBuildEditorConfig.editorconfig
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.AssemblyInfoInputs.cache
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.AssemblyInfo.cs
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.CoreCompileInputs.cache
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.MvcApplicationPartsAssemblyInfo.cs
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.MvcApplicationPartsAssemblyInfo.cache
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.sourcelink.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\scopedcss\bundle\BasicCrud.styles.css
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.build.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.development.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.build.BasicCrud.props
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BasicCrud.props
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BasicCrud.props
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.Up2Date
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\refint\BasicCrud.dll
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.pdb
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.genruntimeconfig.cache
+D:\Basic Crud App\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\ref\BasicCrud.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.exe
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.pdb
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.OpenApi.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Npgsql.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\appsettings.Development.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\appsettings.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.staticwebassets.endpoints.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Azure.Core.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Azure.Identity.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Humanizer.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\Mono.TextTemplating.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.ClientModel.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.CodeDom.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Convention.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Hosting.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.Runtime.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Composition.TypedParts.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Drawing.Common.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Memory.Data.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Runtime.Caching.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Security.Permissions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\System.Windows.Extensions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.AssemblyReference.cache
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.GeneratedMSBuildEditorConfig.editorconfig
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.AssemblyInfoInputs.cache
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.AssemblyInfo.cs
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.CoreCompileInputs.cache
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.MvcApplicationPartsAssemblyInfo.cs
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.MvcApplicationPartsAssemblyInfo.cache
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.sourcelink.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\scopedcss\bundle\BasicCrud.styles.css
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.build.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.development.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssets.props
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.build.BasicCrud.props
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BasicCrud.props
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BasicCrud.props
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.pack.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.csproj.Up2Date
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\refint\BasicCrud.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.pdb
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.deps.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.runtimeconfig.json
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\BasicCrud.genruntimeconfig.cache
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\ref\BasicCrud.dll
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\BasicCrud\Backend\BasicCrud\BasicCrud\bin\Debug\net8.0\BasicCrud.staticwebassets.runtime.json

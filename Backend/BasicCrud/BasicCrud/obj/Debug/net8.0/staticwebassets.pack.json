@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\BasicCrud\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg"
+    },
+    {
+      "Id": "E:\\BasicCrud\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
+      "PackagePath": "staticwebassets\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BasicCrud.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BasicCrud.props",
+      "PackagePath": "build\\BasicCrud.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BasicCrud.props",
+      "PackagePath": "buildMultiTargeting\\BasicCrud.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BasicCrud.props",
+      "PackagePath": "buildTransitive\\BasicCrud.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
