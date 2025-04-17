@@ -87,35 +87,13 @@ namespace BasicCrud.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "b701685e-5128-4db7-82e8-a79e77caad60",
-                            Email = "aayushadhikari601@gmail.com",
-                            EmailConfirmed = true,
-                            FullName = "Admin",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHF8vuGqZvHfDmDqjNJY0mCCC/Cgg4nUDBNIfbzd92Y5MUQCMuQ36EzVFB74kdit4g==",
-                            PhoneNumber = "9876543210",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "594b6319-cbcb-4f30-900f-bd5882ad0df9",
-                            TwoFactorEnabled = false,
-                            UserName = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Author", b =>
                 {
-                    b.Property<int>("AuthorId")
+                    b.Property<Guid>("AuthorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AuthorId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Biography")
                         .IsRequired()
@@ -140,11 +118,13 @@ namespace BasicCrud.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("AuthorId")
+                        .HasColumnType("uuid");
+
                     b.Property<decimal>("AverageRating")
                         .HasColumnType("numeric");
 
                     b.Property<string>("BookImagePath")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
@@ -157,6 +137,9 @@ namespace BasicCrud.Migrations
                     b.Property<string>("Format")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<Guid?>("GenreId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ISBN")
                         .IsRequired()
@@ -187,58 +170,73 @@ namespace BasicCrud.Migrations
 
                     b.HasKey("BookId");
 
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("GenreId");
+
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.BookAuthor", b =>
+            modelBuilder.Entity("BasicCrud.Model.Bookmark", b =>
                 {
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("BookId1")
+                    b.Property<Guid>("BookmarkId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.HasKey("BookId", "AuthorId");
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
 
-                    b.HasIndex("AuthorId");
+                    b.Property<DateTime>("BookmarkedAt")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.HasIndex("BookId1");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.ToTable("BookAuthors");
+                    b.HasKey("BookmarkId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookmarks");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+            modelBuilder.Entity("BasicCrud.Model.Cart", b =>
                 {
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("BookId1")
+                    b.Property<Guid>("CartId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.HasKey("BookId", "GenreId");
+                    b.Property<DateTime>("AddedAt")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.HasIndex("BookId1");
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
 
-                    b.HasIndex("GenreId");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
 
-                    b.ToTable("BookGenres");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("CartId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Genre", b =>
                 {
-                    b.Property<int>("GenreId")
+                    b.Property<Guid>("GenreId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("GenreId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -272,43 +270,6 @@ namespace BasicCrud.Migrations
                     b.ToTable("Publishers");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.Review", b =>
-                {
-                    b.Property<int>("ReviewId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReviewId"));
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("BookId1")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Comments")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Rating")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasDefaultValue(1);
-
-                    b.Property<DateTime>("ReviewDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("ReviewId");
-
-                    b.HasIndex("BookId1");
-
-                    b.ToTable("Review");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -333,26 +294,6 @@ namespace BasicCrud.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "480788d7-b903-4fc9-84ce-c6be1d183bfc",
-                            Name = "Staff",
-                            NormalizedName = "STAFF"
-                        },
-                        new
-                        {
-                            Id = "5c30268a-8dff-40c6-8649-17551da6e681",
-                            Name = "Member",
-                            NormalizedName = "MEMBER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -440,13 +381,6 @@ namespace BasicCrud.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
-                            RoleId = "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -470,60 +404,64 @@ namespace BasicCrud.Migrations
 
             modelBuilder.Entity("BasicCrud.Model.Book", b =>
                 {
+                    b.HasOne("BasicCrud.Model.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BasicCrud.Model.Genre", "Genre")
+                        .WithMany("Books")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("BasicCrud.Model.Publisher", "Publisher")
                         .WithMany("Books")
-                        .HasForeignKey("PublisherId");
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Genre");
 
                     b.Navigation("Publisher");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.BookAuthor", b =>
+            modelBuilder.Entity("BasicCrud.Model.Bookmark", b =>
                 {
-                    b.HasOne("BasicCrud.Model.Author", "Author")
-                        .WithMany("BookAuthors")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany("BookAuthors")
-                        .HasForeignKey("BookId1")
+                        .WithMany("Bookmarks")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Author");
+                    b.HasOne("BasicCrud.Model.ApplicationUser", "User")
+                        .WithMany("UserBookmarks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Book");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+            modelBuilder.Entity("BasicCrud.Model.Cart", b =>
                 {
                     b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany("BookGenres")
-                        .HasForeignKey("BookId1")
+                        .WithMany("BookCarts")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BasicCrud.Model.Genre", "Genre")
-                        .WithMany("BookGenres")
-                        .HasForeignKey("GenreId")
+                    b.HasOne("BasicCrud.Model.ApplicationUser", "User")
+                        .WithMany("UserCart")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
 
-                    b.Navigation("Genre");
-                });
-
-            modelBuilder.Entity("BasicCrud.Model.Review", b =>
-                {
-                    b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -577,21 +515,28 @@ namespace BasicCrud.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BasicCrud.Model.ApplicationUser", b =>
+                {
+                    b.Navigation("UserBookmarks");
+
+                    b.Navigation("UserCart");
+                });
+
             modelBuilder.Entity("BasicCrud.Model.Author", b =>
                 {
-                    b.Navigation("BookAuthors");
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Book", b =>
                 {
-                    b.Navigation("BookAuthors");
+                    b.Navigation("BookCarts");
 
-                    b.Navigation("BookGenres");
+                    b.Navigation("Bookmarks");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Genre", b =>
                 {
-                    b.Navigation("BookGenres");
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Publisher", b =>

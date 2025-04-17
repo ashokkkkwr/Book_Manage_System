@@ -4,12 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace BasicCrud.Migrations
 {
     /// <inheritdoc />
-    public partial class AddBookImagePath : Migration
+    public partial class asd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,8 +56,7 @@ namespace BasicCrud.Migrations
                 name: "Authors",
                 columns: table => new
                 {
-                    AuthorId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AuthorId = table.Column<Guid>(type: "uuid", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
                     Biography = table.Column<string>(type: "text", nullable: false)
@@ -73,8 +70,7 @@ namespace BasicCrud.Migrations
                 name: "Genres",
                 columns: table => new
                 {
-                    GenreId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GenreId = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -212,6 +208,8 @@ namespace BasicCrud.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     PublicationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     PublisherId = table.Column<Guid>(type: "uuid", nullable: true),
+                    AuthorId = table.Column<Guid>(type: "uuid", nullable: true),
+                    GenreId = table.Column<Guid>(type: "uuid", nullable: true),
                     Language = table.Column<string>(type: "text", nullable: false),
                     Format = table.Column<string>(type: "text", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
@@ -219,111 +217,83 @@ namespace BasicCrud.Migrations
                     AverageRating = table.Column<decimal>(type: "numeric", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    BookImagePath = table.Column<string>(type: "text", nullable: false)
+                    BookImagePath = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
                     table.ForeignKey(
-                        name: "FK_Books_Publishers_PublisherId",
-                        column: x => x.PublisherId,
-                        principalTable: "Publishers",
-                        principalColumn: "PublisherId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BookAuthors",
-                columns: table => new
-                {
-                    BookId = table.Column<int>(type: "integer", nullable: false),
-                    AuthorId = table.Column<int>(type: "integer", nullable: false),
-                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookAuthors", x => new { x.BookId, x.AuthorId });
-                    table.ForeignKey(
-                        name: "FK_BookAuthors_Authors_AuthorId",
+                        name: "FK_Books_Authors_AuthorId",
                         column: x => x.AuthorId,
                         principalTable: "Authors",
                         principalColumn: "AuthorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookAuthors_Books_BookId1",
-                        column: x => x.BookId1,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BookGenres",
-                columns: table => new
-                {
-                    BookId = table.Column<int>(type: "integer", nullable: false),
-                    GenreId = table.Column<int>(type: "integer", nullable: false),
-                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookGenres", x => new { x.BookId, x.GenreId });
-                    table.ForeignKey(
-                        name: "FK_BookGenres_Books_BookId1",
-                        column: x => x.BookId1,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BookGenres_Genres_GenreId",
+                        name: "FK_Books_Genres_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "GenreId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Books_Publishers_PublisherId",
+                        column: x => x.PublisherId,
+                        principalTable: "Publishers",
+                        principalColumn: "PublisherId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Review",
+                name: "Bookmarks",
                 columns: table => new
                 {
-                    ReviewId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    BookmarkId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    BookId = table.Column<int>(type: "integer", nullable: false),
-                    Rating = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
-                    Comments = table.Column<string>(type: "text", nullable: false),
-                    ReviewDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false)
+                    BookId = table.Column<Guid>(type: "uuid", nullable: false),
+                    BookmarkedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Review", x => x.ReviewId);
+                    table.PrimaryKey("PK_Bookmarks", x => x.BookmarkId);
                     table.ForeignKey(
-                        name: "FK_Review_Books_BookId1",
-                        column: x => x.BookId1,
+                        name: "FK_Bookmarks_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Bookmarks_Books_BookId",
+                        column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
                 {
-                    { "480788d7-b903-4fc9-84ce-c6be1d183bfc", null, "Staff", "STAFF" },
-                    { "5c30268a-8dff-40c6-8649-17551da6e681", null, "Member", "MEMBER" },
-                    { "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a", null, "Admin", "ADMIN" }
+                    CartId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    BookId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Quantity = table.Column<int>(type: "integer", nullable: false),
+                    AddedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.CartId);
+                    table.ForeignKey(
+                        name: "FK_Carts_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Carts_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dec406ea-1bd1-4ab6-94b3-0efce668f8cf", 0, "b701685e-5128-4db7-82e8-a79e77caad60", "aayushadhikari601@gmail.com", true, "Admin", false, null, "AAYUSHADHIKARI601@GMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEHF8vuGqZvHfDmDqjNJY0mCCC/Cgg4nUDBNIfbzd92Y5MUQCMuQ36EzVFB74kdit4g==", "9876543210", false, "594b6319-cbcb-4f30-900f-bd5882ad0df9", false, "Admin" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a", "dec406ea-1bd1-4ab6-94b3-0efce668f8cf" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -363,23 +333,23 @@ namespace BasicCrud.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookAuthors_AuthorId",
-                table: "BookAuthors",
+                name: "IX_Bookmarks_BookId",
+                table: "Bookmarks",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookmarks_UserId",
+                table: "Bookmarks",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_AuthorId",
+                table: "Books",
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookAuthors_BookId1",
-                table: "BookAuthors",
-                column: "BookId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookGenres_BookId1",
-                table: "BookGenres",
-                column: "BookId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookGenres_GenreId",
-                table: "BookGenres",
+                name: "IX_Books_GenreId",
+                table: "Books",
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
@@ -388,9 +358,14 @@ namespace BasicCrud.Migrations
                 column: "PublisherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_BookId1",
-                table: "Review",
-                column: "BookId1");
+                name: "IX_Carts_BookId",
+                table: "Carts",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_UserId",
+                table: "Carts",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -412,13 +387,10 @@ namespace BasicCrud.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "BookAuthors");
+                name: "Bookmarks");
 
             migrationBuilder.DropTable(
-                name: "BookGenres");
-
-            migrationBuilder.DropTable(
-                name: "Review");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -427,13 +399,13 @@ namespace BasicCrud.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "Books");
+
+            migrationBuilder.DropTable(
                 name: "Authors");
 
             migrationBuilder.DropTable(
                 name: "Genres");
-
-            migrationBuilder.DropTable(
-                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Publishers");

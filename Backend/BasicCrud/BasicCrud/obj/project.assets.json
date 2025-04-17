@@ -4411,23 +4411,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tiger\\.nuget\\packages\\": {},
+    "C:\\Users\\Acer\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BasicCrud\\Backend\\BasicCrud\\BasicCrud\\BasicCrud.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\BasicCrud.csproj",
       "projectName": "BasicCrud",
-      "projectPath": "E:\\BasicCrud\\Backend\\BasicCrud\\BasicCrud\\BasicCrud.csproj",
-      "packagesPath": "C:\\Users\\tiger\\.nuget\\packages\\",
-      "outputPath": "E:\\BasicCrud\\Backend\\BasicCrud\\BasicCrud\\obj\\",
+      "projectPath": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\BasicCrud.csproj",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tiger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

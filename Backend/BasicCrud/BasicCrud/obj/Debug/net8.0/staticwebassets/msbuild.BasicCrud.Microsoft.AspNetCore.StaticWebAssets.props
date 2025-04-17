@@ -1,5 +1,41 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BasicCrud</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BasicCrud</BasePath>
+      <RelativePath>uploads/0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>tz8q1onqnz</Fingerprint>
+      <Integrity>917UjAlc5eOBylkCrnSfbdVlHvdYrxTfTzDPFDEUfUc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BasicCrud</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BasicCrud</BasePath>
+      <RelativePath>uploads/1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cesglfjozq</Fingerprint>
+      <Integrity>PAvLmCt4H4jTAwYvAC+O1R+KOYMgmvyEKaR0GPbFy/A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BasicCrud</SourceId>
@@ -35,6 +71,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\628f4780-687a-426a-9c53-ef2354255452.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\72beabe0-6744-428b-9045-6947b69c99c2.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BasicCrud</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BasicCrud</BasePath>
+      <RelativePath>uploads/72beabe0-6744-428b-9045-6947b69c99c2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>tz8q1onqnz</Fingerprint>
+      <Integrity>917UjAlc5eOBylkCrnSfbdVlHvdYrxTfTzDPFDEUfUc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\72beabe0-6744-428b-9045-6947b69c99c2.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BasicCrud</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BasicCrud</BasePath>
+      <RelativePath>uploads/f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>uk2huvi3zq</Fingerprint>
+      <Integrity>TsHbp3INNnEbYn1kjQnzCUNDSyKoDwg06F6eohkVhrc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
