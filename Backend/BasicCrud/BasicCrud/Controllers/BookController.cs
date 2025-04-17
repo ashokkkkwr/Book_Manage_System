@@ -74,7 +74,7 @@ namespace BasicCrud.Controllers
             return Ok(new { message = "Book added successfully", bookId = book.BookId });
         }
 
-        // GET: api/Book/catalogue?page=1&pageSize=10&search=programming&genreId=...&sort=title_asc
+        // GET: api/Book/catalogue
         [HttpGet("catalogue")]
         [AllowAnonymous]
         public async Task<IActionResult> GetBooks(
@@ -90,15 +90,14 @@ namespace BasicCrud.Controllers
                 .Include(b => b.Publisher)
                 .AsQueryable();
 
-            // Search by title or description
             if (!string.IsNullOrWhiteSpace(search))
-                query = query.Where(b => EF.Functions.Like(b.Title, $"%{search}%") || EF.Functions.Like(b.Description, $"%{search}%"));
+                query = query.Where(b =>
+                    EF.Functions.Like(b.Title, $"%{search}%") ||
+                    EF.Functions.Like(b.Description, $"%{search}%"));
 
-            // Filter by genre
             if (genreId.HasValue)
                 query = query.Where(b => b.GenreId == genreId.Value);
 
-            // Sorting
             query = sort.ToLower() switch
             {
                 "title_desc" => query.OrderByDescending(b => b.Title),
@@ -107,11 +106,21 @@ namespace BasicCrud.Controllers
                 _ => query.OrderBy(b => b.Title),
             };
 
-            // Pagination
             var totalItems = await query.CountAsync();
-            var books = await query
+
+            var items = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
+                .Select(b => new BookListItemDto
+                {
+                    BookId = b.BookId,
+                    Title = b.Title,
+                    Price = b.Price,
+                    ImageUrl = b.BookImagePath,
+                    Genre = b.Genre.Name,  // assuming Genre has a Name property
+                    Publisher = b.Publisher.Name,
+                    Author = b.Author.FirstName + " " + b.Author.LastName
+                })
                 .ToListAsync();
 
             return Ok(new
@@ -120,7 +129,7 @@ namespace BasicCrud.Controllers
                 pageSize,
                 totalItems,
                 totalPages = (int)Math.Ceiling((double)totalItems / pageSize),
-                books
+                books = items
             });
         }
 
@@ -129,16 +138,30 @@ namespace BasicCrud.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetBookDetails(Guid id)
         {
-            var book = await _dbContext.Books
-                .Include(b => b.Genre)
-                .Include(b => b.Author)
-                .Include(b => b.Publisher)
-                .FirstOrDefaultAsync(b => b.BookId == id);
+            var dto = await _dbContext.Books
+                .Where(b => b.BookId == id)
+                .Select(b => new BookDetailsDto
+                {
+                    BookId = b.BookId,
+                    Title = b.Title,
+                    ISBN = b.ISBN,
+                    Description = b.Description,
+                    PublicationDate = b.PublicationDate, 
+                    Language = b.Language,
+                    Format = b.Format,
+                    Price = b.Price,
+                    StockCount = b.StockCount,
+                    Genre = b.Genre.Name,
+                    Publisher = b.Publisher.Name,
+                    Author = b.Author.FirstName + " " + b.Author.LastName,
+                    ImageUrl = b.BookImagePath
+                })
+                .FirstOrDefaultAsync();
 
-            if (book is null)
+            if (dto is null)
                 return NotFound(new { message = "Book not found" });
 
-            return Ok(book);
+            return Ok(dto);
         }
     }
 }

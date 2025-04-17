@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LbmJKNifx7kkWQFbSuCYpYjYDYK7KdPFAo8JtR1RGRA=",
+  "Hash": "CwbjkPYM7flNYFeEYiFxKwPARDvt+pQ9nXEOBPErhWg=",
   "Source": "BasicCrud",
   "BasePath": "_content/BasicCrud",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BasicCrud\\wwwroot",
       "Source": "BasicCrud",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/0b9cff30-626c-403d-8795-a1229dd1a2f0#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg"
     },
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/1fd8e8c2-5410-4386-b07a-7a519ae49469#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg"
     },
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/60cf34f2-9980-466a-89f1-ab0ed1e0b0e5#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg"
     },
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/628f4780-687a-426a-9c53-ef2354255452#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg"
     },
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/72beabe0-6744-428b-9045-6947b69c99c2#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -122,10 +122,31 @@
       "OriginalItemSpec": "wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg"
     },
     {
-      "Identity": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg",
       "SourceId": "BasicCrud",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
+      "BasePath": "_content/BasicCrud",
+      "RelativePath": "uploads/b9dbac66-dfe1-4fe8-9843-b2e29a378326#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tuxbb9qw5d",
+      "Integrity": "2zA1hmEt7GG6nqU2HoaJxGyL4TyqyZbM8QEFUirQbN4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
+      "SourceId": "BasicCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\",
       "BasePath": "_content/BasicCrud",
       "RelativePath": "uploads/f34aa0b2-d242-4465-98b7-0dcbf59ab7ca#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -146,7 +167,7 @@
   "Endpoints": [
     {
       "Route": "uploads/0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -167,7 +188,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:44:58 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -183,7 +204,7 @@
     },
     {
       "Route": "uploads/0b9cff30-626c-403d-8795-a1229dd1a2f0.tz8q1onqnz.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\0b9cff30-626c-403d-8795-a1229dd1a2f0.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -204,7 +225,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:44:58 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -228,7 +249,7 @@
     },
     {
       "Route": "uploads/1fd8e8c2-5410-4386-b07a-7a519ae49469.cesglfjozq.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +270,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:23:48 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -273,7 +294,7 @@
     },
     {
       "Route": "uploads/1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -294,7 +315,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:23:48 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -310,7 +331,7 @@
     },
     {
       "Route": "uploads/60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,7 +352,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:21:30 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -347,7 +368,7 @@
     },
     {
       "Route": "uploads/60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.tuxbb9qw5d.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -368,7 +389,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:21:30 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -392,7 +413,7 @@
     },
     {
       "Route": "uploads/628f4780-687a-426a-9c53-ef2354255452.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +434,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:21:30 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -429,7 +450,7 @@
     },
     {
       "Route": "uploads/628f4780-687a-426a-9c53-ef2354255452.tuxbb9qw5d.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\628f4780-687a-426a-9c53-ef2354255452.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -450,7 +471,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 17:21:30 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -474,7 +495,7 @@
     },
     {
       "Route": "uploads/72beabe0-6744-428b-9045-6947b69c99c2.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,7 +516,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:11:19 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -511,7 +532,7 @@
     },
     {
       "Route": "uploads/72beabe0-6744-428b-9045-6947b69c99c2.tz8q1onqnz.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\72beabe0-6744-428b-9045-6947b69c99c2.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -532,7 +553,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:11:19 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -555,8 +576,90 @@
       ]
     },
     {
+      "Route": "uploads/b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "792123"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2zA1hmEt7GG6nqU2HoaJxGyL4TyqyZbM8QEFUirQbN4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Apr 2025 02:41:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2zA1hmEt7GG6nqU2HoaJxGyL4TyqyZbM8QEFUirQbN4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/b9dbac66-dfe1-4fe8-9843-b2e29a378326.tuxbb9qw5d.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "792123"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2zA1hmEt7GG6nqU2HoaJxGyL4TyqyZbM8QEFUirQbN4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Apr 2025 02:41:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tuxbb9qw5d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2zA1hmEt7GG6nqU2HoaJxGyL4TyqyZbM8QEFUirQbN4="
+        }
+      ]
+    },
+    {
       "Route": "uploads/f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +680,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:26:07 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -593,7 +696,7 @@
     },
     {
       "Route": "uploads/f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.uk2huvi3zq.jpg",
-      "AssetFile": "C:\\Users\\Acer\\Documents\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
+      "AssetFile": "C:\\Users\\tiger\\OneDrive\\Desktop\\Book_Manage_System\\Backend\\BasicCrud\\BasicCrud\\wwwroot\\uploads\\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -614,7 +717,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 21:26:07 GMT"
+          "Value": "Thu, 17 Apr 2025 02:14:34 GMT"
         },
         {
           "Name": "Cache-Control",

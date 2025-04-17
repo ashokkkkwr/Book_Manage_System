@@ -13,9 +13,13 @@ namespace BasicCrud.DbContext
 
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
+
         public DbSet<Bookmark> Bookmarks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -66,6 +70,19 @@ namespace BasicCrud.DbContext
                 .WithMany(b => b.Bookmarks)
                 .HasForeignKey(bm => bm.BookId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<BookAuthor>()
+               .HasKey(ba => new { ba.BookId, ba.AuthorId });
+
+            builder.Entity<BookGenre>()
+                .HasKey(bg => new { bg.BookId, bg.GenreId });
+
+            builder.Entity<Review>()
+                .Property(r => r.Rating)
+                .HasConversion<int>()
+                .HasDefaultValue(1)
+                .IsRequired();
+
+            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
     }
 }

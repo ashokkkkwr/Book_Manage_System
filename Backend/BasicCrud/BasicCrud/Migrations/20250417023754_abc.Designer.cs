@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BasicCrud.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250416222910_asd")]
-    partial class asd
+    [Migration("20250417023754_abc")]
+    partial class abc
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,6 +90,26 @@ namespace BasicCrud.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a5c7194f-b970-415e-8522-815c7dd13889",
+                            Email = "aayushadhikari601@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFv9tgGQvHC1sY0tYMpP3gf0zQ6CZg8yGWTOs4/brlRQQQCtLqaWiwtUvQ/U1Cglzg==",
+                            PhoneNumber = "9876543210",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d43836a9-5d9f-47c3-ab75-54551fc12234",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Author", b =>
@@ -180,6 +200,52 @@ namespace BasicCrud.Migrations
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.BookAuthor", b =>
+                {
+                    b.Property<int>("BookId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("AuthorId1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BookId1")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("BookId", "AuthorId");
+
+                    b.HasIndex("AuthorId1");
+
+                    b.HasIndex("BookId1");
+
+                    b.ToTable("BookAuthors");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+                {
+                    b.Property<int>("BookId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GenreId")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("BookId1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GenreId1")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("BookId", "GenreId");
+
+                    b.HasIndex("BookId1");
+
+                    b.HasIndex("GenreId1");
+
+                    b.ToTable("BookGenres");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Bookmark", b =>
@@ -273,6 +339,43 @@ namespace BasicCrud.Migrations
                     b.ToTable("Publishers");
                 });
 
+            modelBuilder.Entity("BasicCrud.Model.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReviewId"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("BookId1")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Rating")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(1);
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("BookId1");
+
+                    b.ToTable("Review");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -297,6 +400,26 @@ namespace BasicCrud.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "480788d7-b903-4fc9-84ce-c6be1d183bfc",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "5c30268a-8dff-40c6-8649-17551da6e681",
+                            Name = "Member",
+                            NormalizedName = "MEMBER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -384,6 +507,13 @@ namespace BasicCrud.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
+                            RoleId = "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -429,6 +559,44 @@ namespace BasicCrud.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("BasicCrud.Model.BookAuthor", b =>
+                {
+                    b.HasOne("BasicCrud.Model.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BasicCrud.Model.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+                {
+                    b.HasOne("BasicCrud.Model.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BasicCrud.Model.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Genre");
+                });
+
             modelBuilder.Entity("BasicCrud.Model.Bookmark", b =>
                 {
                     b.HasOne("BasicCrud.Model.Book", "Book")
@@ -465,6 +633,17 @@ namespace BasicCrud.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.Review", b =>
+                {
+                    b.HasOne("BasicCrud.Model.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

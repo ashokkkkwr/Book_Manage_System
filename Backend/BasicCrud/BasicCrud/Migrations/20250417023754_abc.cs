@@ -4,10 +4,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BasicCrud.Migrations
 {
     /// <inheritdoc />
-    public partial class asd : Migration
+    public partial class abc : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -243,6 +245,58 @@ namespace BasicCrud.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BookAuthors",
+                columns: table => new
+                {
+                    BookId = table.Column<int>(type: "integer", nullable: false),
+                    AuthorId = table.Column<int>(type: "integer", nullable: false),
+                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    AuthorId1 = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookAuthors", x => new { x.BookId, x.AuthorId });
+                    table.ForeignKey(
+                        name: "FK_BookAuthors_Authors_AuthorId1",
+                        column: x => x.AuthorId1,
+                        principalTable: "Authors",
+                        principalColumn: "AuthorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookAuthors_Books_BookId1",
+                        column: x => x.BookId1,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookGenres",
+                columns: table => new
+                {
+                    BookId = table.Column<int>(type: "integer", nullable: false),
+                    GenreId = table.Column<int>(type: "integer", nullable: false),
+                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    GenreId1 = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookGenres", x => new { x.BookId, x.GenreId });
+                    table.ForeignKey(
+                        name: "FK_BookGenres_Books_BookId1",
+                        column: x => x.BookId1,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookGenres_Genres_GenreId1",
+                        column: x => x.GenreId1,
+                        principalTable: "Genres",
+                        principalColumn: "GenreId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Bookmarks",
                 columns: table => new
                 {
@@ -295,6 +349,50 @@ namespace BasicCrud.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Review",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    BookId = table.Column<int>(type: "integer", nullable: false),
+                    Rating = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
+                    Comments = table.Column<string>(type: "text", nullable: false),
+                    ReviewDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    BookId1 = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Review", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_Review_Books_BookId1",
+                        column: x => x.BookId1,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "480788d7-b903-4fc9-84ce-c6be1d183bfc", null, "Staff", "STAFF" },
+                    { "5c30268a-8dff-40c6-8649-17551da6e681", null, "Member", "MEMBER" },
+                    { "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a", null, "Admin", "ADMIN" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "dec406ea-1bd1-4ab6-94b3-0efce668f8cf", 0, "a5c7194f-b970-415e-8522-815c7dd13889", "aayushadhikari601@gmail.com", true, "Admin", false, null, "AAYUSHADHIKARI601@GMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEFv9tgGQvHC1sY0tYMpP3gf0zQ6CZg8yGWTOs4/brlRQQQCtLqaWiwtUvQ/U1Cglzg==", "9876543210", false, "d43836a9-5d9f-47c3-ab75-54551fc12234", false, "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "644aa6e7-45aa-4b6a-bb4c-8d4e33f7987a", "dec406ea-1bd1-4ab6-94b3-0efce668f8cf" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -333,6 +431,26 @@ namespace BasicCrud.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookAuthors_AuthorId1",
+                table: "BookAuthors",
+                column: "AuthorId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookAuthors_BookId1",
+                table: "BookAuthors",
+                column: "BookId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookGenres_BookId1",
+                table: "BookGenres",
+                column: "BookId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookGenres_GenreId1",
+                table: "BookGenres",
+                column: "GenreId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Bookmarks_BookId",
                 table: "Bookmarks",
                 column: "BookId");
@@ -366,6 +484,11 @@ namespace BasicCrud.Migrations
                 name: "IX_Carts_UserId",
                 table: "Carts",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Review_BookId1",
+                table: "Review",
+                column: "BookId1");
         }
 
         /// <inheritdoc />
@@ -387,10 +510,19 @@ namespace BasicCrud.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BookAuthors");
+
+            migrationBuilder.DropTable(
+                name: "BookGenres");
+
+            migrationBuilder.DropTable(
                 name: "Bookmarks");
 
             migrationBuilder.DropTable(
                 name: "Carts");
+
+            migrationBuilder.DropTable(
+                name: "Review");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
