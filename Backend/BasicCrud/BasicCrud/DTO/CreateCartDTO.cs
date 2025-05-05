@@ -2,7 +2,7 @@
 {
     public class CreateCartDTO
     {
-        public string UserId { get; set; }
+     
 
         public Guid BookId
         {

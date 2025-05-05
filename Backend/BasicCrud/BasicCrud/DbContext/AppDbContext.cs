@@ -21,6 +21,11 @@ namespace BasicCrud.DbContext
         public DbSet<BookGenre> BookGenres { get; set; }
 
         public DbSet<Bookmark> Bookmarks { get; set; }
+        public DbSet<Order> Orders { get; set; }             // ← add this
+        public DbSet<OrderItem> OrderItems { get; set; }     // ← and this
+        public DbSet<Review> Reviews { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -81,6 +86,35 @@ namespace BasicCrud.DbContext
                 .HasConversion<int>()
                 .HasDefaultValue(1)
                 .IsRequired();
+
+            builder.Entity<OrderItem>()
+        .HasOne(oi => oi.Order)
+        .WithMany(o => o.Items)
+        .HasForeignKey(oi => oi.OrderId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+            // ——— Review ←→ User, Book ———
+            builder.Entity<Review>(entity =>
+            {
+                entity.HasKey(r => r.ReviewId);
+
+                entity
+                  .HasOne(r => r.User)
+                  .WithMany(u => u.UserReviews)
+                  .HasForeignKey(r => r.UserId)
+                  .OnDelete(DeleteBehavior.Cascade);
+
+                entity
+                  .HasOne(r => r.Book)
+                  .WithMany(b => b.Reviews)
+                  .HasForeignKey(r => r.BookId)
+                  .OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(r => r.Rating)
+                      .IsRequired();
+            });
+
+
 
             builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }

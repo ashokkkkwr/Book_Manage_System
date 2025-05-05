@@ -1,4 +1,5 @@
-﻿using BasicCrud.DbContext;
+﻿using System.Security.Claims;
+using BasicCrud.DbContext;
 using BasicCrud.DTO;
 using BasicCrud.Model;
 using Microsoft.AspNetCore.Authorization;
@@ -32,11 +33,18 @@ namespace BasicCrud.Controllers
             {
                 return BadRequest(ModelState);
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
 
+
+            Console.WriteLine(dto);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User ID not found in token.");
+            }
             var cart = new Cart
             {
-                UserId = dto.UserId,
+                UserId = userId,
                 BookId = dto.BookId,
                 Quantity = dto.Quantity,
             };

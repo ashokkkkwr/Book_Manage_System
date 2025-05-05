@@ -3,6 +3,7 @@ using System;
 using BasicCrud.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BasicCrud.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505143501_AddNextOrderDiscountToUsers2")]
+    partial class AddNextOrderDiscountToUsers2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,7 +102,7 @@ namespace BasicCrud.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dcac33ee-0483-4136-bc47-e4e195330ae8",
+                            ConcurrencyStamp = "c558f871-b902-4aae-948e-990154d9fb38",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
@@ -107,10 +110,10 @@ namespace BasicCrud.Migrations
                             NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDbC2LfICVbPTJRg+mJiO/pjCny2E0AysDHNaXUTrAqKrB4SDDuM3Ptd6zUoyCnU0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDE9TJyVvr2f7bWmLjlzQRLldoSSFDY9YDUNiA+Fi5EdAVarTOZNCv50jUJEGty+uw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "458ddc8f-7f14-43cb-a723-da966f58e9b7",
+                            SecurityStamp = "e41c0da7-18a2-49f5-ba58-553860714753",
                             SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"
@@ -368,7 +371,7 @@ namespace BasicCrud.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.OrderItem", b =>
@@ -395,7 +398,7 @@ namespace BasicCrud.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Publisher", b =>
@@ -452,7 +455,7 @@ namespace BasicCrud.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -764,7 +767,7 @@ namespace BasicCrud.Migrations
                         .IsRequired();
 
                     b.HasOne("BasicCrud.Model.ApplicationUser", "User")
-                        .WithMany("UserReviews")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -830,8 +833,6 @@ namespace BasicCrud.Migrations
                     b.Navigation("UserBookmarks");
 
                     b.Navigation("UserCart");
-
-                    b.Navigation("UserReviews");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Author", b =>

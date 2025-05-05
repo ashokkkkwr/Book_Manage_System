@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BasicCrud.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250417023754_abc")]
-    partial class abc
+    [Migration("20250505165254_AddReviewsDbSet")]
+    partial class AddReviewsDbSet
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,9 @@ namespace BasicCrud.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<decimal>("NextOrderDiscount")
+                        .HasColumnType("decimal(5,4)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -72,6 +75,9 @@ namespace BasicCrud.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
+
+                    b.Property<int>("SuccessfulOrdersCount")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
@@ -96,17 +102,19 @@ namespace BasicCrud.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a5c7194f-b970-415e-8522-815c7dd13889",
+                            ConcurrencyStamp = "dcac33ee-0483-4136-bc47-e4e195330ae8",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
                             LockoutEnabled = false,
+                            NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFv9tgGQvHC1sY0tYMpP3gf0zQ6CZg8yGWTOs4/brlRQQQCtLqaWiwtUvQ/U1Cglzg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDbC2LfICVbPTJRg+mJiO/pjCny2E0AysDHNaXUTrAqKrB4SDDuM3Ptd6zUoyCnU0Q==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d43836a9-5d9f-47c3-ab75-54551fc12234",
+                            SecurityStamp = "458ddc8f-7f14-43cb-a723-da966f58e9b7",
+                            SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -225,25 +233,45 @@ namespace BasicCrud.Migrations
                     b.ToTable("BookAuthors");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+            modelBuilder.Entity("BasicCrud.Model.BookDiscount", b =>
                 {
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("BookId1")
+                    b.Property<Guid>("BookDiscountId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("GenreId1")
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("DiscountPercentage")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("EndAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("OnSale")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("StartAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("BookDiscountId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookDiscount");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
+                {
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GenreId")
                         .HasColumnType("uuid");
 
                     b.HasKey("BookId", "GenreId");
 
-                    b.HasIndex("BookId1");
-
-                    b.HasIndex("GenreId1");
+                    b.HasIndex("GenreId");
 
                     b.ToTable("BookGenres");
                 });
@@ -316,6 +344,63 @@ namespace BasicCrud.Migrations
                     b.ToTable("Genres");
                 });
 
+            modelBuilder.Entity("BasicCrud.Model.Order", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ClaimCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("DiscountApplied")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("OrderedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.OrderItem", b =>
+                {
+                    b.Property<Guid>("OrderItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("OrderItemId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
+                });
+
             modelBuilder.Entity("BasicCrud.Model.Publisher", b =>
                 {
                     b.Property<Guid>("PublisherId")
@@ -341,29 +426,24 @@ namespace BasicCrud.Migrations
 
             modelBuilder.Entity("BasicCrud.Model.Review", b =>
                 {
-                    b.Property<int>("ReviewId")
+                    b.Property<Guid>("ReviewId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReviewId"));
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("BookId1")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Comments")
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Rating")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasDefaultValue(1);
-
-                    b.Property<DateTime>("ReviewDate")
-                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -371,9 +451,11 @@ namespace BasicCrud.Migrations
 
                     b.HasKey("ReviewId");
 
-                    b.HasIndex("BookId1");
+                    b.HasIndex("BookId");
 
-                    b.ToTable("Review");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -568,7 +650,7 @@ namespace BasicCrud.Migrations
                         .IsRequired();
 
                     b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany()
+                        .WithMany("BookAuthors")
                         .HasForeignKey("BookId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -578,17 +660,28 @@ namespace BasicCrud.Migrations
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("BasicCrud.Model.BookDiscount", b =>
+                {
+                    b.HasOne("BasicCrud.Model.Book", "Book")
+                        .WithMany("BookDiscounts")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("BasicCrud.Model.BookGenre", b =>
                 {
                     b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId1")
+                        .WithMany("BookGenres")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BasicCrud.Model.Genre", "Genre")
                         .WithMany()
-                        .HasForeignKey("GenreId1")
+                        .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -635,15 +728,53 @@ namespace BasicCrud.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BasicCrud.Model.Review", b =>
+            modelBuilder.Entity("BasicCrud.Model.Order", b =>
+                {
+                    b.HasOne("BasicCrud.Model.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.OrderItem", b =>
                 {
                     b.HasOne("BasicCrud.Model.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId1")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BasicCrud.Model.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.Review", b =>
+                {
+                    b.HasOne("BasicCrud.Model.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BasicCrud.Model.ApplicationUser", "User")
+                        .WithMany("UserReviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -702,6 +833,8 @@ namespace BasicCrud.Migrations
                     b.Navigation("UserBookmarks");
 
                     b.Navigation("UserCart");
+
+                    b.Navigation("UserReviews");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Author", b =>
@@ -711,14 +844,29 @@ namespace BasicCrud.Migrations
 
             modelBuilder.Entity("BasicCrud.Model.Book", b =>
                 {
+                    b.Navigation("BookAuthors");
+
                     b.Navigation("BookCarts");
 
+                    b.Navigation("BookDiscounts");
+
+                    b.Navigation("BookGenres");
+
                     b.Navigation("Bookmarks");
+
+                    b.Navigation("OrderItems");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Genre", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("BasicCrud.Model.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("BasicCrud.Model.Publisher", b =>

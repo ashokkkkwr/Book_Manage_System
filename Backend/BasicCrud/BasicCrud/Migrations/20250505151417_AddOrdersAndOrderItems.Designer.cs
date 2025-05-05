@@ -3,6 +3,7 @@ using System;
 using BasicCrud.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BasicCrud.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505151417_AddOrdersAndOrderItems")]
+    partial class AddOrdersAndOrderItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,7 +102,7 @@ namespace BasicCrud.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dcac33ee-0483-4136-bc47-e4e195330ae8",
+                            ConcurrencyStamp = "4a783496-1ae0-4f11-a1b0-c0edc5acc932",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
@@ -107,10 +110,10 @@ namespace BasicCrud.Migrations
                             NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDbC2LfICVbPTJRg+mJiO/pjCny2E0AysDHNaXUTrAqKrB4SDDuM3Ptd6zUoyCnU0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENGNb3VoH5E4BNgJEz9TH6CD3Az8ZGKakcquerm68ciY3OO5yBwYuwZoed7+Yw1o/Q==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "458ddc8f-7f14-43cb-a723-da966f58e9b7",
+                            SecurityStamp = "74ac01a0-08c6-4f81-9f19-ac7f78cd2319",
                             SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"
@@ -452,7 +455,7 @@ namespace BasicCrud.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

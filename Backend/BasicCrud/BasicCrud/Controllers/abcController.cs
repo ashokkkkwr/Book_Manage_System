@@ -24,6 +24,7 @@ namespace BasicCrud.Controllers
         public async Task <IActionResult> GetUsers()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            
 
             return Ok( userId);
         }

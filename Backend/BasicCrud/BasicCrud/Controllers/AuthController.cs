@@ -130,6 +130,8 @@ namespace BasicCrud.Controllers
 {
     new Claim(ClaimTypes.Name, user.UserName),
     new Claim(ClaimTypes.NameIdentifier, user.Id), // This line adds the user ID.
+        new Claim(ClaimTypes.Role,             "Member"),   // must match RoleClaimType
+
     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
 };
 
@@ -194,6 +196,8 @@ namespace BasicCrud.Controllers
             {
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
+                        new Claim(ClaimTypes.Role,             "Staff"),   // must match RoleClaimType
+
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

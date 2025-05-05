@@ -215,7 +215,7 @@
   {
     "ContainingType": "BasicCrud.Controllers.BookMarkController",
     "Method": "BookMark",
-    "RelativePath": "api/BookMark/create",
+    "RelativePath": "api/BookMark/toggle",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -223,6 +223,43 @@
       {
         "Name": "dto",
         "Type": "BasicCrud.DTO.CreateBookmarkDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.ReviewsController",
+    "Method": "CreateReview",
+    "RelativePath": "api/books/{bookId}/reviews",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "BasicCrud.Controllers.ReviewDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.ReviewsController",
+    "Method": "GetReviewsForBook",
+    "RelativePath": "api/books/{bookId}/reviews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -255,6 +292,58 @@
       {
         "Name": "dto",
         "Type": "BasicCrud.DTO.CreateGenreDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.OrdersController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/Orders/{id}/cancel",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.OrdersController",
+    "Method": "PlaceOrder",
+    "RelativePath": "api/Orders/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.OrdersController",
+    "Method": "GetMyOrders",
+    "RelativePath": "api/Orders/my",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.OrdersController",
+    "Method": "ProcessOrder",
+    "RelativePath": "api/Orders/process/{claimCode}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "claimCode",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

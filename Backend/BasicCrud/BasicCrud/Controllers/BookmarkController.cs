@@ -1,8 +1,10 @@
-﻿using BasicCrud.DbContext;
+﻿using System.Security.Claims;
+using BasicCrud.DbContext;
 using BasicCrud.DTO;
 using BasicCrud.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Controllers
 {
@@ -19,7 +21,7 @@ namespace BasicCrud.Controllers
 
 
         }
-        [HttpPost("create")]
+        [HttpPost("toggle")]
         public async Task<IActionResult> BookMark([FromBody] CreateBookmarkDTO dto)
         {
             Console.WriteLine(dto);
@@ -32,18 +34,35 @@ namespace BasicCrud.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-
-            var bookmark = new Bookmark
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
             {
-                UserId = dto.UserId,
-                BookId = dto.BookId,
-            };
+                return Unauthorized("User ID not found in token.");
+            }
+            var existing = await _dbContext.Bookmarks
+       .FirstOrDefaultAsync(b => b.UserId == userId && b.BookId == dto.BookId);
 
-            await _dbContext.Bookmarks.AddAsync(bookmark);
-            await _dbContext.SaveChangesAsync();
+            if (existing != null)
+            {
+                // already bookmarked → remove it
+                _dbContext.Bookmarks.Remove(existing);
+                await _dbContext.SaveChangesAsync();
+                return Ok(new { message = "Bookmark removed" });
+            }
+            else
+            {
+                var bookmark = new Bookmark
+                {
+                    UserId = userId,
+                    BookId = dto.BookId,
+                };
 
-            return Ok(new { message = "Book bookmarked successfully" });
+                await _dbContext.Bookmarks.AddAsync(bookmark);
+                await _dbContext.SaveChangesAsync();
+
+                return Ok(new { message = "Book bookmarked successfully" });
+            }
+      
         }
     }
 }
