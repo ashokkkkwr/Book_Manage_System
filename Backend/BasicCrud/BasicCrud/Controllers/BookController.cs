@@ -163,5 +163,75 @@ namespace BasicCrud.Controllers
 
             return Ok(dto);
         }
+        // DELETE: api/Book/deleteBook/{id}
+        [HttpDelete("deleteBook/{id}")]
+        public async Task<IActionResult> DeleteBook(Guid id)
+        {
+            var book = await _dbContext.Books.FindAsync(id);
+            if (book == null)
+                return NotFound(new { message = "Book not found" });
+
+            // Delete image file if exists
+            if (!string.IsNullOrEmpty(book.BookImagePath))
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.BookImagePath.TrimStart('/'));
+                if (System.IO.File.Exists(filePath))
+                    System.IO.File.Delete(filePath);
+            }
+
+            _dbContext.Books.Remove(book);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok(new { message = "Book deleted successfully" });
+        }
+        [HttpPatch("updateBook/{id}")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateBook(Guid id, [FromForm] CreateBookDto dto)
+        {
+            if (dto == null || !ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var book = await _dbContext.Books.FindAsync(id);
+            if (book == null)
+                return NotFound(new { message = "Book not found" });
+
+            // Update fields
+            book.Title = dto.Title;
+            book.ISBN = dto.ISBN;
+            book.Description = dto.Description;
+            book.PublicationDate = dto.PublicationDate;
+            book.PublisherId = dto.PublisherId;
+            book.GenreId = dto.GenreId;
+            book.Language = dto.Language;
+            book.AuthorId = dto.AuthorId;
+            book.Format = dto.Format;
+            book.Price = dto.Price;
+            book.StockCount = dto.StockCount;
+
+            // Handle image replacement
+            if (dto.BookImage != null && dto.BookImage.Length > 0)
+            {
+                // Delete old file if exists
+                if (!string.IsNullOrEmpty(book.BookImagePath))
+                {
+                    var oldPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.BookImagePath.TrimStart('/'));
+                    if (System.IO.File.Exists(oldPath))
+                        System.IO.File.Delete(oldPath);
+                }
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(dto.BookImage.FileName)}";
+                var savePath = Path.Combine(_imageFolderPath, fileName);
+                using var fileStream = new FileStream(savePath, FileMode.Create);
+                await dto.BookImage.CopyToAsync(fileStream);
+                book.BookImagePath = $"/uploads/{fileName}";
+            }
+
+            book.UpdatedAt = DateTime.UtcNow;
+            _dbContext.Books.Update(book);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok(new { message = "Book updated successfully" });
+        }
     }
+
 }

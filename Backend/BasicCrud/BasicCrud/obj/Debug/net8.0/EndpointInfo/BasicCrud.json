@@ -354,6 +354,144 @@
         }
       }
     },
+    "/api/Book/deleteBook/{id}": {
+      "delete": {
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Book/updateBook/{id}": {
+      "patch": {
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "ISBN": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "PublicationDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PublisherId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "AuthorId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "GenreId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Language": {
+                    "type": "string"
+                  },
+                  "Format": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "StockCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BookImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "ISBN": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "PublicationDate": {
+                  "style": "form"
+                },
+                "PublisherId": {
+                  "style": "form"
+                },
+                "AuthorId": {
+                  "style": "form"
+                },
+                "GenreId": {
+                  "style": "form"
+                },
+                "Language": {
+                  "style": "form"
+                },
+                "Format": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "StockCount": {
+                  "style": "form"
+                },
+                "BookImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/BookMark/toggle": {
       "post": {
         "tags": [

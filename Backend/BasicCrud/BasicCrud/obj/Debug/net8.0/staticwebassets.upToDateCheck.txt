@@ -3,7 +3,7 @@ wwwroot\uploads\1fd8e8c2-5410-4386-b07a-7a519ae49469.jpg
 wwwroot\uploads\60cf34f2-9980-466a-89f1-ab0ed1e0b0e5.jpg
 wwwroot\uploads\628f4780-687a-426a-9c53-ef2354255452.jpg
 wwwroot\uploads\72beabe0-6744-428b-9045-6947b69c99c2.jpg
-wwwroot\uploads\9947cebb-d58d-438a-aa78-0c299aa1df2e.jpg
+wwwroot\uploads\9e69eb36-9944-4640-9b20-6ac59e7112f6.pdf
 wwwroot\uploads\b9dbac66-dfe1-4fe8-9843-b2e29a378326.jpg
 wwwroot\uploads\bbd0a5ca-8929-4d87-81d0-34998165b36a.jpg
 wwwroot\uploads\f34aa0b2-d242-4465-98b7-0dcbf59ab7ca.jpg
