@@ -32,6 +32,7 @@ namespace BasicCrud.Controllers
         // POST: api/Book/addBook
         [HttpPost("addBook")]
         [Consumes("multipart/form-data")]
+        [AllowAnonymous]
         public async Task<IActionResult> AddBook([FromForm] CreateBookDto dto)
         {
             if (dto == null || !ModelState.IsValid)
@@ -55,7 +56,7 @@ namespace BasicCrud.Controllers
                 Title = dto.Title,
                 ISBN = dto.ISBN,
                 Description = dto.Description,
-                PublicationDate = dto.PublicationDate,
+                PublicationDate = dto.PublicationDate?.ToUniversalTime(),
                 PublisherId = dto.PublisherId,
                 GenreId = dto.GenreId,
                 Language = dto.Language,
@@ -78,25 +79,30 @@ namespace BasicCrud.Controllers
         [HttpGet("catalogue")]
         [AllowAnonymous]
         public async Task<IActionResult> GetBooks(
-            int page = 1,
-            int pageSize = 10,
-            string? search = null,
-            Guid? genreId = null,
-            string sort = "title_asc")
+     int page = 1,
+     int pageSize = 10,
+     string? search = null,
+     Guid? genreId = null,
+     string sort = "title_asc")
         {
             var query = _dbContext.Books
-                .Include(b => b.Genre)
-                .Include(b => b.Author)
                 .Include(b => b.Publisher)
+                .Include(b => b.BookAuthors).ThenInclude(ba => ba.Author)
+                .Include(b => b.BookGenres).ThenInclude(bg => bg.Genre)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
+            {
                 query = query.Where(b =>
                     EF.Functions.Like(b.Title, $"%{search}%") ||
                     EF.Functions.Like(b.Description, $"%{search}%"));
+            }
 
             if (genreId.HasValue)
-                query = query.Where(b => b.GenreId == genreId.Value);
+            {
+                query = query.Where(b =>
+                    b.BookGenres.Any(bg => bg.GenreId == genreId.Value));
+            }
 
             query = sort.ToLower() switch
             {
@@ -111,15 +117,42 @@ namespace BasicCrud.Controllers
             var items = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(b => new BookListItemDto
+                .Select(b => new
                 {
-                    BookId = b.BookId,
-                    Title = b.Title,
-                    Price = b.Price,
+                    b.BookId,
+                    b.Title,
+                    b.Price,
+                    b.ISBN,
+                    b.Description,
+                    b.PublicationDate,
+                    b.Language,
+                    b.Format,
+                    b.StockCount,
+                    b.AverageRating,
+                    b.CreatedAt,
+                    b.UpdatedAt,
                     ImageUrl = b.BookImagePath,
-                    Genre = b.Genre.Name,  // assuming Genre has a Name property
-                    Publisher = b.Publisher.Name,
-                    Author = b.Author.FirstName + " " + b.Author.LastName
+
+                    Publisher = b.Publisher == null ? null : new
+                    {
+                        b.Publisher.PublisherId,
+                        b.Publisher.Name,
+                        b.Publisher.Website,
+                    },
+
+                    Authors = b.BookAuthors.Select(ba => new
+                    {
+                        ba.Author.AuthorId,
+                        ba.Author.FirstName,
+                        ba.Author.LastName,
+                        ba.Author.Biography
+                    }),
+
+                    Genres = b.BookGenres.Select(bg => new
+                    {
+                        bg.Genre.GenreId,
+                        bg.Genre.Name,
+                    })
                 })
                 .ToListAsync();
 
@@ -132,6 +165,7 @@ namespace BasicCrud.Controllers
                 books = items
             });
         }
+
 
         // GET: api/Book/{id}
         [HttpGet("{id}")]
@@ -146,7 +180,7 @@ namespace BasicCrud.Controllers
                     Title = b.Title,
                     ISBN = b.ISBN,
                     Description = b.Description,
-                    PublicationDate = b.PublicationDate, 
+                    PublicationDate = b.PublicationDate,
                     Language = b.Language,
                     Format = b.Format,
                     Price = b.Price,
@@ -165,6 +199,7 @@ namespace BasicCrud.Controllers
         }
         // DELETE: api/Book/deleteBook/{id}
         [HttpDelete("deleteBook/{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteBook(Guid id)
         {
             var book = await _dbContext.Books.FindAsync(id);
@@ -186,6 +221,7 @@ namespace BasicCrud.Controllers
         }
         [HttpPatch("updateBook/{id}")]
         [Consumes("multipart/form-data")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateBook(Guid id, [FromForm] CreateBookDto dto)
         {
             if (dto == null || !ModelState.IsValid)
@@ -232,6 +268,79 @@ namespace BasicCrud.Controllers
 
             return Ok(new { message = "Book updated successfully" });
         }
+        [HttpGet("getAllBooks")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllBooks()
+        {
+            var books = await _dbContext.Books
+                .Include(b => b.Publisher)
+                .Include(b => b.BookAuthors).ThenInclude(ba => ba.Author)
+                .Include(b => b.BookGenres).ThenInclude(bg => bg.Genre)
+                .OrderByDescending(b => b.CreatedAt)
+                .Select(b => new
+                {
+                    b.BookId,
+                    b.Title,
+                    b.ISBN,
+                    b.Description,
+                    b.PublicationDate,
+                    b.Language,
+                    b.Format,
+                    b.Price,
+                    b.StockCount,
+                    b.BookImagePath,
+                    b.CreatedAt,
+
+                    Publisher = b.Publisher == null ? null : new
+                    {
+                        b.Publisher.PublisherId,
+                        b.Publisher.Name,
+                        b.Publisher.Website,
+                    },
+
+                    Author = b.Author == null ? null : new
+                    {
+                        b.Author.AuthorId,
+                        b.Author.FirstName,
+                        b.Author.LastName,
+                    },
+
+                    Genre = b.Genre == null ? null : new
+                    {
+                        b.Genre.GenreId,
+                        b.Genre.Name,
+                    },
+                })
+                .ToListAsync();
+
+            return Ok(books);
+        }
+
+        [HttpGet("search")]
+        [AllowAnonymous]
+        public async Task<IActionResult> SearchBooksByTitle([FromQuery] string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return BadRequest(new { message = "Search query cannot be empty." });
+
+            var books = await _dbContext.Books
+                .Where(b => EF.Functions.ILike(b.Title, $"%{title}%"))
+                .Select(b => new
+                {
+                    b.BookId,
+                    b.Title,
+                    b.Description,
+                    b.Price,
+                    b.BookImagePath
+                })
+                .ToListAsync();
+
+            return Ok(books);
+        }
+
+
     }
+
+
 
 }

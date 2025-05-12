@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "BasicCrud API",
+    "title": "Bibliofile API",
     "version": "v1"
   },
   "paths": {
@@ -165,6 +165,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Author/getAllAuthors": {
+      "get": {
+        "tags": [
+          "Author"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -492,6 +504,39 @@
         }
       }
     },
+    "/api/Book/getAllBooks": {
+      "get": {
+        "tags": [
+          "Book"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Book/search": {
+      "get": {
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/BookMark/toggle": {
       "post": {
         "tags": [
@@ -516,6 +561,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BookMark/getBookmark": {
+      "get": {
+        "tags": [
+          "BookMark"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -554,6 +611,18 @@
         }
       }
     },
+    "/api/Cart/getCarts": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Genre/create": {
       "post": {
         "tags": [
@@ -578,6 +647,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Genre/getAllGenres": {
+      "get": {
+        "tags": [
+          "Genre"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -654,6 +735,18 @@
         }
       }
     },
+    "/api/Orders/all": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Publisher/create": {
       "post": {
         "tags": [
@@ -678,6 +771,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Publisher/getAllPublishers": {
+      "get": {
+        "tags": [
+          "Publisher"
+        ],
         "responses": {
           "200": {
             "description": "OK"

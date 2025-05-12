@@ -136,6 +136,7 @@ namespace BasicCrud.Controllers
                     o.ClaimCode,
                     o.DiscountApplied,
                     Items = o.Items.Select(i => new {
+                        i.BookId,
                         i.Book.Title,
                         i.Quantity,
                         i.UnitPrice
@@ -146,7 +147,6 @@ namespace BasicCrud.Controllers
             return Ok(orders);
         }
 
-        // MEMBER: cancel a pending order
         [HttpPut("{id}/cancel")]
         [Authorize(Roles = "Member")]
         public async Task<IActionResult> CancelOrder(Guid id)
@@ -170,7 +170,6 @@ namespace BasicCrud.Controllers
             return Ok(new { Message = "Order cancelled." });
         }
 
-        // STAFF/ADMIN: process (fulfil) by claim code
         [HttpPost("process/{claimCode}")]
         [Authorize(Roles = "Staff,Admin")]
         public async Task<IActionResult> ProcessOrder(string claimCode)
@@ -188,5 +187,36 @@ namespace BasicCrud.Controllers
             await _dbContext.SaveChangesAsync();
             return Ok(new { Message = "Order fulfilled.", order.OrderId });
         }
+
+        [HttpGet("all")]
+        [Authorize(Roles = "Staff")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var orders = await _dbContext.Orders
+                .Include(o => o.User)
+                .Select(o => new
+                {
+                    o.OrderId,
+                    o.OrderedAt,
+                    o.Status,
+                    o.ClaimCode,
+                    o.DiscountApplied,
+                    User = new
+                    {
+                        o.User.Id,
+                        o.User.UserName,
+                        o.User.Email
+                    },
+                    Items = o.Items.Select(i => new {
+                        i.Book.Title,
+                        i.Quantity,
+                        i.UnitPrice
+                    })
+                })
+                .ToListAsync();
+
+            return Ok(orders);
+        }
+
     }
 }

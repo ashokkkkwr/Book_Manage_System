@@ -99,7 +99,7 @@ namespace BasicCrud.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dcac33ee-0483-4136-bc47-e4e195330ae8",
+                            ConcurrencyStamp = "7b74f131-7453-4cbd-b9bc-ec87139aeb3c",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
@@ -107,10 +107,10 @@ namespace BasicCrud.Migrations
                             NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDbC2LfICVbPTJRg+mJiO/pjCny2E0AysDHNaXUTrAqKrB4SDDuM3Ptd6zUoyCnU0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKsNWvMvRK8PWFQzYLaTD0Nwf9G5vunUDMNLQESU+VqL23AORIsPG+jHHVoP5M20Mw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "458ddc8f-7f14-43cb-a723-da966f58e9b7",
+                            SecurityStamp = "defe6f92-9b52-40ff-a56b-e01fb0afce1e",
                             SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"

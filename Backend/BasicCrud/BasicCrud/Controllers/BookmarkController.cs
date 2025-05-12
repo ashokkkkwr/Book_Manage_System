@@ -64,6 +64,40 @@ namespace BasicCrud.Controllers
             }
       
         }
+
+        [HttpGet("getBookmark")]
+        public async Task<IActionResult> GetBookmarks()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User ID not found in token.");
+            }
+
+            var bookmarks = await _dbContext.Bookmarks
+                .Where(b => b.UserId == userId)
+                .Include(b => b.Book) // Includes book details
+                .ToListAsync();
+
+            var result = bookmarks.Select(b => new
+            {
+                b.BookmarkId,
+                b.BookId,
+                b.UserId,
+                Book = new
+                {
+                    b.Book.BookId,
+                    b.Book.Title,
+                    b.Book.Price,
+                    b.Book.Description,
+                    b.Book.Author
+                }
+            });
+
+            return Ok(result);
+        }
+
     }
 }
 

@@ -204,7 +204,7 @@ namespace BasicCrud.Controllers
             // Add role claims.
             foreach (var userRole in userRoles)
             {
-                authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
             }
 
             // Get JWT settings from configuration.

@@ -2,7 +2,9 @@
 using BasicCrud.DbContext;
 using BasicCrud.DTO;
 using BasicCrud.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Controllers
 {
@@ -19,6 +21,7 @@ namespace BasicCrud.Controllers
 
         // POST: api/Publisher/create
         [HttpPost("create")]
+        [AllowAnonymous]
         public async Task<IActionResult> CreatePublisher([FromBody] CreatePublisherDto dto)
         {
             if (dto == null)
@@ -49,5 +52,23 @@ namespace BasicCrud.Controllers
                 publisherId = publisher.PublisherId
             });
         }
+
+        [HttpGet("getAllPublishers")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllPublishers()
+        {
+            var publishers = await _dbContext.Publishers
+                .Select(p => new
+                {
+                    p.PublisherId,
+                    p.Name,
+                    p.Description,
+                    p.Website
+                })
+                .ToListAsync();
+
+            return Ok(publishers);
+        }
+
     }
 }

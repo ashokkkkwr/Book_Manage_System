@@ -3,6 +3,7 @@ using BasicCrud.DTO;
 using BasicCrud.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Controllers
 {
@@ -20,6 +21,7 @@ namespace BasicCrud.Controllers
 
         }
         [HttpPost("create")]
+        [AllowAnonymous]
         public async Task<IActionResult> AddAuthor([FromBody] CreateAuthorDTO dto)
         {
             Console.WriteLine(dto);
@@ -45,6 +47,23 @@ namespace BasicCrud.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok(new { message = "Author added successfully" });
+        }
+
+        [HttpGet("getAllAuthors")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllAuthors()
+        {
+            var authors = await _dbContext.Authors
+                .Select(a => new
+                {
+                    a.AuthorId,
+                    a.FirstName,
+                    a.LastName,
+                    a.Biography
+                })
+                .ToListAsync();
+
+            return Ok(authors);
         }
     }
 }

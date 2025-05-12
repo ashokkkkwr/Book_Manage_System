@@ -81,7 +81,8 @@ namespace BasicCrud.Controllers
                     r.UserId,
                     r.Rating,
                     r.Comment,
-                    r.CreatedAt
+                    r.CreatedAt,
+                    r.User.FullName,
                 })
                 .ToListAsync();
 
@@ -89,8 +90,8 @@ namespace BasicCrud.Controllers
         }
     }
 
-    // DTO for incoming review data
-    public class ReviewDto
+        // DTO for incoming review data
+        public class ReviewDto
     {
         public int Rating { get; set; }
         public string Comment { get; set; }
