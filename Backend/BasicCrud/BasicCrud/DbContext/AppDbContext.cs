@@ -21,8 +21,8 @@ namespace BasicCrud.DbContext
         public DbSet<BookGenre> BookGenres { get; set; }
 
         public DbSet<Bookmark> Bookmarks { get; set; }
-        public DbSet<Order> Orders { get; set; }             // ← add this
-        public DbSet<OrderItem> OrderItems { get; set; }     // ← and this
+        public DbSet<Order> Orders { get; set; }             
+        public DbSet<OrderItem> OrderItems { get; set; }     
         public DbSet<Review> Reviews { get; set; }
 
 

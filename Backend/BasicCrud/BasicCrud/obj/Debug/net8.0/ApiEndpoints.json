@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "BasicCrud.Controllers.abcController",
-    "Method": "GetUsers",
+    "Method": "GetUser",
     "RelativePath": "api/abc/getuser",
     "HttpMethod": "GET",
     "IsController": true,
@@ -87,6 +87,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.AuthorController",
+    "Method": "GetAllAuthors",
+    "RelativePath": "api/Author/getAllAuthors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -230,6 +240,32 @@
   },
   {
     "ContainingType": "BasicCrud.Controllers.BookController",
+    "Method": "GetAllBooks",
+    "RelativePath": "api/Book/getAllBooks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.BookController",
+    "Method": "SearchBooksByTitle",
+    "RelativePath": "api/Book/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "title",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.BookController",
     "Method": "UpdateBook",
     "RelativePath": "api/Book/updateBook/{id}",
     "HttpMethod": "PATCH",
@@ -306,6 +342,16 @@
   },
   {
     "ContainingType": "BasicCrud.Controllers.BookMarkController",
+    "Method": "GetBookmarks",
+    "RelativePath": "api/BookMark/getBookmark",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.BookMarkController",
     "Method": "BookMark",
     "RelativePath": "api/BookMark/toggle",
     "HttpMethod": "POST",
@@ -374,6 +420,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BasicCrud.Controllers.CartController",
+    "Method": "GetCarts",
+    "RelativePath": "api/Cart/getCarts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BasicCrud.Controllers.GenreController",
     "Method": "AddGenre",
     "RelativePath": "api/Genre/create",
@@ -390,6 +446,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BasicCrud.Controllers.GenreController",
+    "Method": "GetAllGenres",
+    "RelativePath": "api/Genre/getAllGenres",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BasicCrud.Controllers.OrdersController",
     "Method": "CancelOrder",
     "RelativePath": "api/Orders/{id}/cancel",
@@ -403,6 +469,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.OrdersController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/Orders/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -455,6 +531,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicCrud.Controllers.PublisherController",
+    "Method": "GetAllPublishers",
+    "RelativePath": "api/Publisher/getAllPublishers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -4,6 +4,7 @@ using BasicCrud.DTO;
 using BasicCrud.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Controllers
 {
@@ -54,6 +55,39 @@ namespace BasicCrud.Controllers
 
             return Ok(new { message = "Book added to cart successfully" });
         }
+
+        [HttpGet("getCarts")]
+        public async Task<IActionResult> GetCarts()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User ID not found in token.");
+            }
+
+            var carts = await _dbContext.Carts
+                .Where(c => c.UserId == userId)
+                .Include(c => c.Book)
+                .Select(c => new
+                {
+                    c.CartId,
+                    c.Quantity,
+                    Book = new
+                    {
+                        c.Book.BookId,
+                        c.Book.Title,
+                        c.Book.Author,
+                        c.Book.Price
+                    }
+                })
+                .ToListAsync();
+
+            return Ok(carts);
+        }
+
+
+
     }
 }
 

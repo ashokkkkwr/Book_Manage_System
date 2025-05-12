@@ -3,6 +3,7 @@ using BasicCrud.DTO;
 using BasicCrud.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Controllers
 {
@@ -20,6 +21,7 @@ namespace BasicCrud.Controllers
         
         }
         [HttpPost("create")]
+        [AllowAnonymous]
         public async Task<IActionResult> AddGenre([FromBody] CreateGenreDTO dto)
         {
             Console.WriteLine(dto);
@@ -43,6 +45,22 @@ namespace BasicCrud.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok(new { message = "Genre added successfully" });
+        }
+
+
+        [HttpGet("getAllGenres")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllGenres()
+        {
+            var genres = await _dbContext.Genres
+                .Select(g => new
+                {
+                    g.GenreId,
+                    g.Name
+                })
+                .ToListAsync();
+
+            return Ok(genres);
         }
     }
 }
