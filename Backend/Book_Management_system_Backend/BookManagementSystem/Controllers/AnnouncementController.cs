@@ -52,6 +52,13 @@ namespace BasicCrud.Controllers
             return Ok(announcement);
         }
 
+        [HttpGet("getAnnouncements")]
+        public async Task<IActionResult> GetAnnouncement()
+        {
+            var announcements = await _dbContext.Announcements.ToListAsync();
+            return Ok(announcements);
+        }
+
 
         [HttpGet("active")]
         public async Task<IActionResult> GetActiveAnnouncements()

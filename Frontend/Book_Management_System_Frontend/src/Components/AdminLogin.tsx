@@ -51,6 +51,8 @@ const AdminLogin: React.FC = () => {
       setError(
         err.response?.data?.message || "Login failed. Please try again."
       );
+      setIsLoading(false)
+
     }
   };
 

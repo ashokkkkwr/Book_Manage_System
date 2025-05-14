@@ -91,7 +91,8 @@ namespace BasicCrud.Controllers
                     b.Book.Title,
                     b.Book.Price,
                     b.Book.Description,
-                    b.Book.Author
+                    b.Book.Author,
+                    b.Book.BookImagePath
                 }
             });
 

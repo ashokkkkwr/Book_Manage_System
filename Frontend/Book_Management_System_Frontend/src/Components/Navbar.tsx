@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BookOpen, ShoppingCart, User, Menu, X, Moon, Sun, Search } from 'lucide-react';
 import axiosInstance from '../service/axiosInstance';
 import debounce from 'lodash.debounce';
+// import { NotificationDropdown } from './NotificaitonDropdown';
 
 interface User {
   fullName: string;
@@ -10,7 +11,7 @@ interface User {
   roles: string;
 }
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [user, setUser] = useState<User>();
@@ -42,11 +43,8 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    if (isDarkMode) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
   }, []);
 
   const getUser = async () => {
@@ -71,18 +69,14 @@ export const Navbar = () => {
     try {
       const res = await axiosInstance.get(`/book/search?title=${query}`);
       setSearchResults(res.data);
-      console.log("🚀 ~ searchBooks ~ res:", res)
     } catch (error) {
       console.error("Error searching books:", error);
     }
   };
 
   const debouncedSearch = debounce((value: string) => {
-    if (value.trim().length > 0) {
-      searchBooks(value);
-    } else {
-      setSearchResults([]);
-    }
+    if (value.trim().length > 0) searchBooks(value);
+    else setSearchResults([]);
   }, 300);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,12 +86,9 @@ export const Navbar = () => {
   };
 
   const handleClick = (bookId: string) => {
-    navigate("/user/book-details", {
-      state: { bookId: bookId },
-    });
-    setSearchResults([])
+    navigate("/user/book-details", { state: { bookId } });
+    setSearchResults([]);
   };
-
 
   return (
     <header className="shadow-sm sticky top-0 z-40 bg-white dark:bg-gray-900 transition-colors duration-200">
@@ -112,17 +103,20 @@ export const Navbar = () => {
               <Link to="/user/" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Home</Link>
               <Link to="/user/books" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Book</Link>
               <Link to="/user/order" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Orders</Link>
+              <Link to="/user/announcement" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Announcement</Link>
+              <Link to="/user/bookmark" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Bookmark</Link>
             </nav>
           </div>
 
           <div className="hidden md:flex items-center space-x-4 relative">
-            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="p-2 rounded-full text-black dark:text-white hover:text-gray-900">
+            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="p-2 rounded-full text-black dark:text-white hover:text-indigo-400">
               <Search className="h-5 w-5" />
             </button>
-            <button onClick={toggleDarkMode} className="p-2 rounded-full text-black dark:text-white hover:text-gray-900">
+            {/* <NotificationDropdown /> */}
+            <button onClick={toggleDarkMode} className="p-2 rounded-full text-black dark:text-white hover:text-indigo-400">
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            <Link to="/user/cart" className="relative p-2 rounded-full text-black dark:text-white hover:text-gray-900">
+            <Link to="/user/cart" className="relative p-2 rounded-full text-black dark:text-white hover:text-indigo-400">
               <ShoppingCart className="h-5 w-5" />
             </Link>
             {isAuthenticated ? (
@@ -144,13 +138,13 @@ export const Navbar = () => {
           </div>
 
           <div className="flex md:hidden items-center space-x-3">
-            <button onClick={toggleDarkMode} className="p-2 rounded-full hover:text-gray-900">
+            <button onClick={toggleDarkMode} className="p-2 rounded-full hover:text-indigo-400">
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            <Link to="/user/cart" className="relative p-2 rounded-full hover:text-gray-900">
+            <Link to="/user/cart" className="relative p-2 rounded-full hover:text-indigo-400">
               <ShoppingCart className="h-5 w-5" />
             </Link>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="inline-flex items-center justify-center p-2 rounded-md hover:text-gray-900">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="inline-flex items-center justify-center p-2 rounded-md hover:text-indigo-400">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
@@ -163,6 +157,7 @@ export const Navbar = () => {
             <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</Link>
             <Link to="/user/books" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Books</Link>
             <Link to="/user/order" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Orders</Link>
+            <Link to="/user/bookmark" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Bookmark</Link>
             <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Search</button>
             {isAuthenticated ? (
               <>
@@ -197,8 +192,9 @@ export const Navbar = () => {
                 <div className="absolute z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 w-full mt-1 rounded-md shadow-lg max-h-60 overflow-y-auto">
                   {searchResults.map((book, index) => (
                     <button
+                      key={index}
                       onClick={() => handleClick(book.bookId)}
-                       className="block px-4 py-2 w-full text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className="block px-4 py-2 w-full text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       {book.title}
                     </button>

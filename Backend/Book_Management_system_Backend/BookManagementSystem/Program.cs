@@ -9,11 +9,11 @@ using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using BasicCrud.Configuration;
 using System.Text.Json.Serialization;
-using BasicCrud.Hubs;          // ← add this line
-
+using BookManagementSystem.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 1) Configure CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -21,12 +21,14 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// 2) EF / Identity / JWT setup
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
@@ -35,16 +37,16 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["Secret"];
 
-builder.Services.AddAuthentication(options =>
+builder.Services.AddAuthentication(opts =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(options =>
+.AddJwtBearer(opts =>
 {
-    options.RequireHttpsMetadata = true;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
+    opts.RequireHttpsMetadata = true;
+    opts.SaveToken = true;
+    opts.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -55,18 +57,27 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
         RoleClaimType = ClaimTypes.Role
     };
-});
-builder.Services.AddControllers()
-    .AddJsonOptions(opt =>
+    opts.Events = new JwtBearerEvents
     {
-        opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        OnMessageReceived = context =>
+        {
+            // if the request is for our hub…
+            var path = context.HttpContext.Request.Path;
+            if (path.StartsWithSegments("/Hubs/OrderHub")
+                && context.Request.Query.TryGetValue("token", out var token))
+            {
+                context.Token = token;
+            }
+            return Task.CompletedTask;
+        }
+    };
+});
 
-    });
+// 3) Controllers, JSON options, email, Swagger, SignalR
+builder.Services.AddControllers()
+    .AddJsonOptions(o => o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-builder.Services.AddControllers();
-
-builder.Services.Configure<SmtpSettings>(
-    builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.AddSingleton<IEmailService, EmailService>();
 
 builder.Services.AddSwaggerGen(c =>
@@ -79,27 +90,26 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Enter JWT token in the format: Bearer {your token}"
+        Description = "Enter: Bearer {your token}"
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
         {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
+            new OpenApiSecurityScheme {
+                Reference = new OpenApiReference {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id   = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 });
+
 builder.Services.AddSignalR();
 
 var app = builder.Build();
 
+// 4) Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -107,11 +117,27 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// **ROUTING** must come before CORS / Auth / Map*
+app.UseRouting();
+
+// CORS must be here, before Auth and before MapHub
 app.UseCors("AllowFrontend");
+
+// Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapHub<OrderHub>("/hubs/orders");
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapHub<OrderHub>("/Hubs/OrderHub");
+ 
+//});
 
-app.MapControllers();
+// Static files (optional)
 app.UseStaticFiles();
+
+// 5) Endpoint mapping
+app.MapControllers();
+app.MapHub<OrderHub>("/Hubs/OrderHub");
+
 app.Run();

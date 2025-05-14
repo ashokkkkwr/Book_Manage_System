@@ -143,7 +143,7 @@ const getPublisher = async() =>{
       });
       toast.success(res.data.message)
       console.log("🚀 ~ handleSubmit ~ res:", res)
-      onSuccess();
+      // onSuccess();
     } catch (err) {
       console.error('Error submitting form:', err);
     }

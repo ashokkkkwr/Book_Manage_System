@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, UserPlus } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import axiosInstance from '../service/axiosInstance';
+import { toast } from 'react-toastify';
 
 type RegisterForm = {
   userName: string;
@@ -45,10 +46,11 @@ const navigate = useNavigate()
     try {
       const response = await axiosInstance.post('/Auth/register', form);
       console.log('Success:', response.data);
+      toast.success(response.data.message)
       navigate("/login")
     } catch (error: any) {
       const data = error.response?.data;
-
+      
       if (typeof data?.message === 'string') {
         setGeneralError(data.message); 
       } else if (typeof data?.message === 'object') {

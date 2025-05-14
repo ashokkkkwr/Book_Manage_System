@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookManagementSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250513141747_AddBookIdToNotifications")]
-    partial class AddBookIdToNotifications
+    [Migration("20250513170011_abc")]
+    partial class abc
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,7 +127,7 @@ namespace BookManagementSystem.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1d4766fa-1915-4a04-9253-619512ccce5a",
+                            ConcurrencyStamp = "46751f42-b279-4db3-981a-ae5a775ad2db",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
@@ -135,10 +135,10 @@ namespace BookManagementSystem.Migrations
                             NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPLgvPg2gOacs3vhZ7bO3tBIUSJMdAUejt1yEPol59BKu+nG4r8hTjZyHeu5O9P7NA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA68OMkYKvocctDgTk3FfLlI3TnsMhP+a5OiT7UgQLCdxpkbe8P163nqol1vaM6EPA==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f33201bb-4df6-4ac0-836d-b217947439ef",
+                            SecurityStamp = "8d0e352f-0555-492a-846c-74cd67befa3f",
                             SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"

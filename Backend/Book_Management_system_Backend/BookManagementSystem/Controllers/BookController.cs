@@ -266,10 +266,8 @@ namespace BasicCrud.Controllers
             book.Price = dto.Price;
             book.StockCount = dto.StockCount;
 
-            // Handle image replacement
             if (dto.BookImage != null && dto.BookImage.Length > 0)
             {
-                // Delete old file if exists
                 if (!string.IsNullOrEmpty(book.BookImagePath))
                 {
                     var oldPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.BookImagePath.TrimStart('/'));
@@ -311,32 +309,36 @@ namespace BasicCrud.Controllers
                     b.PublicationDate,
                     b.Language,
                     b.Format,
-                    OriginalPrice = b.Price,
+                    Price = b.Price,
                     b.StockCount,
-                    ImageUrl = b.BookImagePath,
+                    BookImagePath = b.BookImagePath,
                     b.CreatedAt,
 
+                    Discount = b.BookDiscounts == null ? null : new
+                    {
+                        b.BookDiscounts,
+                       
+                    },
                     // Pull out the “current” discount (or null if none)
-                    CurrentDiscount = b.BookDiscounts
-                        .Where(d => d.OnSale && d.StartAt <= now && d.EndAt >= now)
-                        .OrderByDescending(d => d.StartAt)
-                        .Select(d => new
-                        {
-                            d.BookDiscountId,
-                            d.DiscountPercentage,
-                            d.OnSale,
-                            d.StartAt,
-                            d.EndAt
-                        })
-                        .FirstOrDefault(),
+                    //CurrentDiscounts = b.BookDiscounts
+                    //    .Where(d => d.OnSale && d.StartAt <= now && d.EndAt >= now)
+                    //    .OrderByDescending(d => d.StartAt)
+                    //    .Select(d => new
+                    //    {
+                    //        d.BookDiscountId,
+                    //        d.DiscountPercentage,
+                    //        d.OnSale,
+                    //        d.StartAt,
+                    //        d.EndAt
+                    //    })
+                    //    .FirstOrDefault(),
 
                     // Compute discounted price or fall back to original
                     DiscountedPrice = b.BookDiscounts
                         .Where(d => d.OnSale && d.StartAt <= now && d.EndAt >= now)
                         .OrderByDescending(d => d.StartAt)
                         .Select(d => (decimal?)(b.Price * (1 - d.DiscountPercentage / 100m)))
-                        .FirstOrDefault()
-                        ?? b.Price,
+                        .FirstOrDefault(),
 
                     Publisher = b.Publisher == null ? null : new
                     {
@@ -345,18 +347,19 @@ namespace BasicCrud.Controllers
                         b.Publisher.Website,
                     },
 
-                    Authors = b.BookAuthors.Select(ba => new
+                    Author = b.Author == null ? null : new
                     {
-                        ba.Author.AuthorId,
-                        ba.Author.FirstName,
-                        ba.Author.LastName,
-                    }),
+                        b.Author.AuthorId,
+                        b.Author.FirstName,
+                        b.Author.LastName,
+                    },
 
-                    Genres = b.BookGenres.Select(bg => new
+                    Genre = b.Genre == null ? null : new
                     {
-                        bg.Genre.GenreId,
-                        bg.Genre.Name,
-                    }),
+                        b.Genre.GenreId,
+                        b.Genre.Name,
+                    },
+
                 })
                 .ToListAsync();
 
@@ -385,9 +388,9 @@ namespace BasicCrud.Controllers
 
             return Ok(books);
         }
-        // POST: api/Book/addBook
+       
         [HttpPost("addDiscount")]
-        [Consumes("multipart/form-data")]
+      
         [AllowAnonymous]
         public async Task<IActionResult> AddDiscount([FromForm] CreateDiscountDto dto)
         {
@@ -443,7 +446,8 @@ namespace BasicCrud.Controllers
             return Ok(results);
         }
         // DELETE: api/discounts/{id}
-        [HttpDelete("disount/delete/{id}")]
+        [HttpDelete("discount/delete/{id}")]
+        [Authorize(Roles = "Staff")]
         public async Task<IActionResult> DeleteDiscount(Guid id)
         {
             var discount = await _dbContext.BookDiscounts.FindAsync(id);

@@ -78,7 +78,13 @@ namespace BasicCrud.Controllers
                         c.Book.BookId,
                         c.Book.Title,
                         c.Book.Author,
-                        c.Book.Price
+                        c.Book.Price,
+                        Discount = c.Book.BookDiscounts == null ? null : new
+                        {
+                            c.Book.BookDiscounts,
+
+                        },
+
                     }
                 })
                 .ToListAsync();

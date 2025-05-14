@@ -22,8 +22,8 @@ const AdminPublishers = () => {
 
   const createPublisher = async () => {
     if (!newPublisher.trim()) return;
-    const res = await axiosInstance.post('/Publisher/create', { 
-      name: newPublisher, 
+    const res = await axiosInstance.post('/Publisher/create', {
+      name: newPublisher,
       website,
       description
     });
@@ -38,6 +38,9 @@ const AdminPublishers = () => {
     fetchPublishers();
   }, []);
 
+  const renderWebsite = (website:string) =>{
+    window.location.href=website
+  }
   return (
     <div className="min-h-screen bg-gray-900 p-8">
       <div className="max-w-4xl mx-auto">
@@ -93,14 +96,15 @@ const AdminPublishers = () => {
                 <div className="flex flex-col gap-2">
                   <h3 className="text-lg font-medium text-white">Name: {publisher.name}</h3>
                   {publisher.website && (
-                    <a 
-                      href={publisher.website} 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-indigo-400 hover:text-indigo-300 text-sm"
-                    >
-                     Website: {publisher.website}
-                    </a>
+                  <a
+                  href={publisher.website.startsWith('http') ? publisher.website : `https://${publisher.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-400 hover:text-indigo-300 text-sm"
+                >
+                  Website: {publisher.website}
+                </a>
+                
                   )}
                   {publisher.description && (
                     <p className="text-gray-400 text-sm">Description: {publisher.description}</p>

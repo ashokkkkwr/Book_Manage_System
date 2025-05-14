@@ -21,6 +21,6 @@ namespace BasicCrud.DTO
         public int StockCount { get; set; }
 
         // Added property for file upload
-        public IFormFile BookImage { get; set; }
+        public IFormFile? BookImage { get; set; }
     }
 }

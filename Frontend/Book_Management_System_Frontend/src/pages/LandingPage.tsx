@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Book } from '../types/index';
-import { BookGrid } from '../components/BookGrid';
+import { BookGrid } from '../Components/BookGrid';
 import { SearchX, Sparkles } from 'lucide-react';
+import axiosInstance from '../service/axiosInstance';
 
 const Home = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -13,9 +14,8 @@ const Home = () => {
     const fetchBooks = async () => {
       try {
         setIsLoading(true);
-        // Add your actual API call here
-        // const res = await axiosInstance.get('/books');
-        // setBooks(res.data);
+         const res = await axiosInstance.get('/Book/getAllBooks');
+      setBooks(res.data);
       } catch (err) {
         setError('Failed to fetch books. Please try again later.');
         console.error(err);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../service/axiosInstance';
+import { toast } from 'react-toastify';
 
 interface Book {
   bookId: string;
@@ -106,18 +107,16 @@ const EditBookForm: React.FC<EditBookFormProps> = ({ book, onSuccess, onCancel }
     data.append('format', formData.format);
     data.append('price', formData.price.toString());
     data.append('stockCount', formData.stockCount.toString());
-    if (formData.bookImage) {
-      data.append('bookImage', formData.bookImage);
-    } else {
-      data.append('bookImagePath', formData.bookImagePath);
-    }
+    if(book.bookImagePath)
+    data.append('bookImagePath', formData.bookImagePath);
     
     try {
-      await axiosInstance.patch(`/Book/updateBook/${book.bookId}`, data, {
+      const res = await axiosInstance.patch(`/Book/updateBook/${book.bookId}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
+      toast.success(res.data.message)
       onSuccess();
     } catch (err) {
       console.error('Error updating book:', err);

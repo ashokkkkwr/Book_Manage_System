@@ -4,11 +4,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BasicCrud.DbContext;
 using BasicCrud.Model;
-using BasicCrud.Hubs;
+//using BasicCrud.Hubs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using BookManagementSystem.Hubs;
 
 
 namespace BasicCrud.Controllers
@@ -217,25 +218,28 @@ namespace BasicCrud.Controllers
                 .Select(ur => ur.UserId)
                 .ToListAsync();
 
-            var broadcastNotifs = memberUserIds
-                .SelectMany(uid => order.Items.Select(item => new Notification
-                {
-                    UserId = uid,
-                    BookId = item.BookId,
-                    Message = $"📘 A book has been ordered: {item.Book.Title}",
-                    CreatedAt = DateTime.UtcNow
-                }))
-                .ToList();
-            _dbContext.Notifications.AddRange(broadcastNotifs);
+            //var broadcastNotifs = memberUserIds
+            //    .SelectMany(uid => order.Items.Select(item => new Notification
+            //    {
+            //        UserId = uid,
+            //        BookId = item.BookId,
+            //        Message = $"📘 A book has been ordered: {item.Book.Title}",
+            //        CreatedAt = DateTime.UtcNow
+            //    }))
+            //    .ToList();
+            //_dbContext.Notifications.AddRange(broadcastNotifs);
+            var notif = new { type = "Order", content = "Order Completed", id = Guid.NewGuid().ToString(), timestamp = DateTime.UtcNow, title = "Order Completed", description = $"📘 A book has been ordered: {order.User.FullName}" };
+            await _orderHub.Clients.All.SendAsync("ReceiveNotification", notif);
 
             // 5) Save all notifications
             await _dbContext.SaveChangesAsync();
+           
 
             return Ok(new
             {
                 Message = "Order fulfilled; notifications saved.",
                 OrderId = order.OrderId,
-                NotifsCreated = personalNotifs.Count + broadcastNotifs.Count
+                //NotifsCreated = personalNotifs.Count + notif.Count
             });
         }
         [HttpGet("all")]
