@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BookOpen, ShoppingCart, User, Menu, X, Moon, Sun, Search } from 'lucide-react';
 import axiosInstance from '../service/axiosInstance';
 import debounce from 'lodash.debounce';
-// import { NotificationDropdown } from './NotificaitonDropdown';
+import  NotificationListener from './NotificaitonDropdown';
 
 interface User {
   fullName: string;
@@ -112,7 +112,7 @@ export const Navbar: React.FC = () => {
             <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="p-2 rounded-full text-black dark:text-white hover:text-indigo-400">
               <Search className="h-5 w-5" />
             </button>
-            {/* <NotificationDropdown /> */}
+            <NotificationListener />
             <button onClick={toggleDarkMode} className="p-2 rounded-full text-black dark:text-white hover:text-indigo-400">
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>

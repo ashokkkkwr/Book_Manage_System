@@ -182,10 +182,11 @@ namespace BasicCrud.Controllers
         [Authorize(Roles = "Staff,Admin")]
         public async Task<IActionResult> ProcessOrder(string claimCode)
         {
-            // 1) Load order + items + book
+            // 1) Load order + items + books + user
             var order = await _dbContext.Orders
                 .Include(o => o.Items)
                     .ThenInclude(oi => oi.Book)
+                .Include(o => o.User)
                 .FirstOrDefaultAsync(o => o.ClaimCode == claimCode);
 
             if (order == null)
@@ -204,42 +205,38 @@ namespace BasicCrud.Controllers
                 {
                     UserId = order.UserId,
                     BookId = item.BookId,
-                    Message = $"✅ Your order {order.ClaimCode}: “{item.Book.Title}” has been fulfilled!",
+                    Message = $"✅  “{item.Book.Title}” has been Ordered!",
                     CreatedAt = DateTime.UtcNow
                 })
                 .ToList();
             _dbContext.Notifications.AddRange(personalNotifs);
 
-            // 4) Broadcast notifications – one per member per ordered book
-            var memberRole = await _dbContext.Roles
-                .FirstOrDefaultAsync(r => r.Name == "Member");
-            var memberUserIds = await _dbContext.UserRoles
-                .Where(ur => ur.RoleId == memberRole.Id)
-                .Select(ur => ur.UserId)
-                .ToListAsync();
+            // 4) Broadcast notifications via SignalR – one per ordered book, including user & book title
+            var broadcastNotifs = order.Items
+                .Select(item => new
+                {
+                    type = "Order",
+                    content = "A new Book has been Ordered.",
+                    id = Guid.NewGuid().ToString(),
+                    timestamp = DateTime.UtcNow,
+                    title = "Order Completed",
+                    description = $"📘 A book has been ordered by {order.User.FullName}: “{item.Book.Title}”"
+                })
+                .ToList();
 
-            //var broadcastNotifs = memberUserIds
-            //    .SelectMany(uid => order.Items.Select(item => new Notification
-            //    {
-            //        UserId = uid,
-            //        BookId = item.BookId,
-            //        Message = $"📘 A book has been ordered: {item.Book.Title}",
-            //        CreatedAt = DateTime.UtcNow
-            //    }))
-            //    .ToList();
-            //_dbContext.Notifications.AddRange(broadcastNotifs);
-            var notif = new { type = "Order", content = "Order Completed", id = Guid.NewGuid().ToString(), timestamp = DateTime.UtcNow, title = "Order Completed", description = $"📘 A book has been ordered: {order.User.FullName}" };
-            await _orderHub.Clients.All.SendAsync("ReceiveNotification", notif);
+            foreach (var b in broadcastNotifs)
+            {
+                await _orderHub.Clients.All.SendAsync("ReceiveNotification", b);
+            }
 
-            // 5) Save all notifications
+            // 5) Save all personal notifications
             await _dbContext.SaveChangesAsync();
-           
 
             return Ok(new
             {
-                Message = "Order fulfilled; notifications saved.",
+                Message = "Order fulfilled; personal notifications saved and broadcast sent.",
                 OrderId = order.OrderId,
-                //NotifsCreated = personalNotifs.Count + notif.Count
+                NotifsCreated = personalNotifs.Count + broadcastNotifs.Count
             });
         }
         [HttpGet("all")]

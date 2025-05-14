@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class abc : Migration
+    public partial class YourMigrationName : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -497,7 +497,7 @@ namespace BookManagementSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NextOrderDiscount", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SuccessfulOrdersCount", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dec406ea-1bd1-4ab6-94b3-0efce668f8cf", 0, "46751f42-b279-4db3-981a-ae5a775ad2db", "aayushadhikari601@gmail.com", true, "Admin", false, null, 0m, "AAYUSHADHIKARI601@GMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEA68OMkYKvocctDgTk3FfLlI3TnsMhP+a5OiT7UgQLCdxpkbe8P163nqol1vaM6EPA==", "9876543210", false, "8d0e352f-0555-492a-846c-74cd67befa3f", 0, false, "Admin" });
+                values: new object[] { "dec406ea-1bd1-4ab6-94b3-0efce668f8cf", 0, "f10a845b-8674-4345-b200-d4cfe37322d8", "aayushadhikari601@gmail.com", true, "Admin", false, null, 0m, "AAYUSHADHIKARI601@GMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEJS34lS2PB53v1Kr/DZ77PuVcSYm+qL9a9486NQJ+TqhbQ/tBJaq3DveZTp2sKph/w==", "9876543210", false, "76d4c2ca-0381-47fc-b160-f8f245f1b11c", 0, false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
