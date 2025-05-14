@@ -86,7 +86,6 @@ namespace BasicCrud.Controllers
             Guid? authorId = null,
             Guid? genreId = null,
             bool? inStock = null,
-            // To enable library access filtering, add a bool PhysicalLibraryAccess property to your Book model and DTO
             bool? physicalLibraryAccess = null,
             decimal? priceMin = null,
             decimal? priceMax = null,

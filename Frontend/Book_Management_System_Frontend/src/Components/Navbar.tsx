@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <BookOpen className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-              <span className="ml-2 text-xl text-black dark:text-white font-bold">Bibliofile</span>
+              <span className="ml-2 text-xl text-black dark:text-white font-bold">Book Management System</span>
             </Link>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
               <Link to="/user/" className="px-3 py-2 text-sm font-medium text-black dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400">Home</Link>

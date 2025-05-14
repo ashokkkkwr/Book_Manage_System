@@ -3,6 +3,7 @@ import BookForm from '../Components/BookForm';
 import { Plus } from 'lucide-react';
 import axiosInstance from '../service/axiosInstance';
 import EditBookForm from '../Components/EditBook';
+import { toast } from 'react-toastify';
 
 interface Book {
   bookId: string;
@@ -76,8 +77,9 @@ const BookList: React.FC = () => {
     try {
       await axiosInstance.delete(`/Book/deleteBook/${bookId}`);
       fetchBooks();
+      toast.success("Book deleted successfully.");
     } catch {
-      alert("Failed to delete the book.");
+      toast.error("Failed to delete the book.");
     }
   };
 

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using BookManagementSystem.Hubs;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace BasicCrud.Controllers
@@ -20,12 +21,13 @@ namespace BasicCrud.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly IEmailService _emailService;
-        private readonly IHubContext<OrderHub> _orderHub;     // ← new
+        private readonly IHubContext<OrderHub> _orderHub;  
+        private readonly UserManager<ApplicationUser> _userManager; 
 
 
         public OrdersController(AppDbContext dbContext,
                          IEmailService emailService,
-                        IHubContext<OrderHub> orderHub)      // ← inject hub context
+                        IHubContext<OrderHub> orderHub)     
 
         {
             _dbContext = dbContext;
@@ -111,7 +113,7 @@ namespace BasicCrud.Controllers
                 return StatusCode(500, new
                 {
                     Error = "There was a problem sending your receipt email.",
-                    Details = ex.Message    // or omit in production
+                    Details = ex.Message   
                 });
             }
             return Ok(new
@@ -228,7 +230,6 @@ namespace BasicCrud.Controllers
             {
                 await _orderHub.Clients.All.SendAsync("ReceiveNotification", b);
             }
-
             // 5) Save all personal notifications
             await _dbContext.SaveChangesAsync();
 
@@ -266,6 +267,36 @@ namespace BasicCrud.Controllers
                 })
                 .ToListAsync();
             return Ok(orders);
+        }
+
+
+        [HttpGet("successful-count")]
+        [Authorize(Roles = "Member")]
+
+        public async Task<IActionResult> GetSuccessfulOrderCount()
+        {
+            // 1) Grab the userId from the JWT
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("User ID not found in token.");
+
+            // 2) Load the ApplicationUser (you can pick either approach)
+
+            // Option A: via UserManager
+            var user = await _userManager.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+
+            if (user == null)
+                return NotFound("User not found.");
+
+            // 3) Read out the SuccessfulOrdersCount
+            return Ok(new
+            {
+                user.Id,
+                user.UserName,
+                SuccessfulOrdersCount = user.SuccessfulOrdersCount
+            });
         }
     }
 }

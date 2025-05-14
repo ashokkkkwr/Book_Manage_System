@@ -42,7 +42,6 @@ const BookForm: React.FC<BookFormProps> = ({ onSuccess, onCancel }) => {
     stockCount: '',
     bookImage: null as File | null,
   });
-
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const getAuthor = async() =>{
       try {
@@ -110,7 +109,7 @@ const getPublisher = async() =>{
     if (!formData.price) newErrors.price = 'Price is required';
     if (!formData.stockCount) newErrors.stockCount = 'Stock count is required';
 
-    setErrors(newErrors);
+setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 

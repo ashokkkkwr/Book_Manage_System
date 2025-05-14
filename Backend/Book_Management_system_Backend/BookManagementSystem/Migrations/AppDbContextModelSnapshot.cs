@@ -124,7 +124,7 @@ namespace BookManagementSystem.Migrations
                         {
                             Id = "dec406ea-1bd1-4ab6-94b3-0efce668f8cf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f10a845b-8674-4345-b200-d4cfe37322d8",
+                            ConcurrencyStamp = "dd2b19a6-078a-4768-a54b-54d392e40754",
                             Email = "aayushadhikari601@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Admin",
@@ -132,10 +132,10 @@ namespace BookManagementSystem.Migrations
                             NextOrderDiscount = 0m,
                             NormalizedEmail = "AAYUSHADHIKARI601@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJS34lS2PB53v1Kr/DZ77PuVcSYm+qL9a9486NQJ+TqhbQ/tBJaq3DveZTp2sKph/w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIn/En36Vbj0fVhFXqckUqLHAwrimpMSjeGmRDQryAox2ZAz31+NGIkVJFS9nqq6xw==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "76d4c2ca-0381-47fc-b160-f8f245f1b11c",
+                            SecurityStamp = "96569830-8533-47bc-aa3a-8d80706aad18",
                             SuccessfulOrdersCount = 0,
                             TwoFactorEnabled = false,
                             UserName = "Admin"

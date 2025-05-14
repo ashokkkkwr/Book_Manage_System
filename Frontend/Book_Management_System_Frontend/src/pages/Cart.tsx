@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../service/axiosInstance';
+import { toast } from 'react-toastify';
 
 interface CartItem {
   cartId: number;
@@ -28,6 +29,7 @@ const Cart: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [successfulOrdersCount, setSuccessfulOrdersCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -44,6 +46,19 @@ const Cart: React.FC = () => {
     fetchCartData();
   }, []);
 
+  useEffect(() => {
+    const fetchSuccessfulOrdersCount = async () => {
+      try {
+        const response = await axiosInstance.get('/User/getUser');
+        setSuccessfulOrdersCount(response.data.successfulOrdersCount);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch user data');
+      }
+    };
+
+    fetchSuccessfulOrdersCount();
+  }, []);
+
   const handleRemove = async (cartId: number) => {
     try {
       await axiosInstance.delete(`/Cart/delete/${cartId}`);
@@ -56,11 +71,11 @@ const Cart: React.FC = () => {
   const handlePlaceOrder = async () => {
     try {
       await axiosInstance.post('/Orders/create', { items: cartItems });
-      alert('Order placed successfully!');
+      toast.success('Order placed successfully!');
       setCartItems([]);
     } catch (err) {
       console.error('Failed to place order:', err);
-      alert('Failed to place order.');
+      toast.error('Failed to place order.');
     }
   };
 
@@ -72,11 +87,26 @@ const Cart: React.FC = () => {
     return book.price;
   };
 
-  const getTotalPrice = () =>
-    cartItems.reduce(
-      (total, item) => total + getDiscountedPrice(item.book) * item.quantity,
+  const totalBookQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const isEligibleFor5Percent = totalBookQuantity >= 5;
+  const isEligibleFor10Percent = successfulOrdersCount >= 10;
+
+  const getTotalPrice = () => {
+    let total = cartItems.reduce(
+      (sum, item) => sum + getDiscountedPrice(item.book) * item.quantity,
       0
     );
+
+    if (isEligibleFor5Percent) {
+      total *= 0.95; // Apply 5% discount
+    }
+
+    if (isEligibleFor10Percent) {
+      total *= 0.90; // Apply additional 10% discount
+    }
+
+    return total;
+  };
 
   if (loading) return <div className="text-center p-6 text-black">Loading...</div>;
 
@@ -138,12 +168,32 @@ const Cart: React.FC = () => {
                     Remove
                   </button>
                 </div>
-            </div>
+              </div>
             );
           })}
 
           <div className="text-right text-lg text-black font-semibold mt-6">
             Total: ${getTotalPrice().toFixed(2)}
+          </div>
+
+          <div className="mt-6 text-black text-sm text-center">
+            {isEligibleFor5Percent ? (
+              <p className="text-emerald-600 font-medium">
+                ✅ You qualify for a 5% discount on orders of 5 or more books!
+              </p>
+            ) : (
+              <p>
+                📚 Add {5 - totalBookQuantity} more book(s) to qualify for a 5% discount.
+              </p>
+            )}
+            <p className="mt-2">
+              🧾 You have completed {successfulOrdersCount} successful order(s).
+              {isEligibleFor10Percent ? (
+                <span className="text-emerald-600 font-medium"> 🎉 You qualify for a 10% loyalty discount!</span>
+              ) : (
+                <span> Only {10 - successfulOrdersCount} more to unlock a 10% loyalty discount!</span>
+              )}
+            </p>
           </div>
 
           <div className="text-right mt-4">

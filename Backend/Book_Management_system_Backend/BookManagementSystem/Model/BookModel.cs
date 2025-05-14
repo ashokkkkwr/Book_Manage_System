@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BasicCrud.Model
 {
-    // Identity user
+  
 
 
     public class Publisher
